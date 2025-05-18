@@ -16,21 +16,21 @@ public class ADMService {
     @Autowired
     private ADMRepository admRepo;
 
-    public List<Morador> getAllMorador()
+    public List<ADM> getAllAdm()
     {
-        return morRepo.findAll();
+        return admRepo.findAll();
     }
 
-    public Morador getById(Long id)
+    public ADM getById(Long id)
     {
-        Optional<Morador> optional = morRepo.findById(id);
-        Morador morador = null;
+        Optional<ADM> optional = admRepo.findById(id);
+        ADM adm = null;
         if (optional.isPresent())
-            morador = optional.get();
+            adm = optional.get();
         else
             throw new RuntimeException(
                     "Employee not found for id : " + id);
-        return morador;
+        return adm;
     }
 
     public void save(ADM adm) throws IOException

@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+import br.com.projetoMarajoara.Model.Evento;
+import br.com.projetoMarajoara.Repository.EventoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,44 +14,46 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class EventoService {
 
-    @Autowired private EmployeeRepository empRepo;
+    @Autowired private EventoRepository eventosRepo;
 
-    public List<Employee> getAllEmployee()
+    public List<Evento> getAllEventos()
     {
-        return empRepo.findAll();
-    }
-    public void save(Employee employee, MultipartFile image) throws IOException
-    {
-        employee.setImageName(image.getOriginalFilename());
-        employee.setImageType(image.getContentType());
-        employee.setImageData(image.getBytes());
-        empRepo.save(employee);
-    }
-    public void save(Employee employee)
-    {
-        empRepo.save(employee);
+        return eventosRepo.findAll();
     }
 
-    public void saveButkeepImage(Employee employee, Employee oldEmployee)
+    public void save(Evento evento, MultipartFile image) throws IOException
     {
-        employee.setImageName(oldEmployee.getImageName());
-        employee.setImageType(oldEmployee.getImageType());
-        employee.setImageData(oldEmployee.getImageData());
-        empRepo.save(employee);
+        evento.setImageNome(image.getOriginalFilename());
+        evento.setImageTipo(image.getContentType());
+        evento.setImageDados(image.getBytes());
+        eventosRepo.save(evento);
     }
-    public Employee getById(Long id)
+
+    public void save(Evento evento)
     {
-        Optional<Employee> optional = empRepo.findById(id);
-        Employee employee = null;
+        eventosRepo.save(evento);
+    }
+
+    public void saveButkeepImage(Evento evento, Evento oldEvento)
+    {
+        evento.setImageNome(oldEvento.getImageNome());
+        evento.setImageTipo(oldEvento.getImageTipo());
+        evento.setImageDados(oldEvento.getImageDados());
+        eventosRepo.save(evento);
+    }
+    public Evento getById(Long id)
+    {
+        Optional<Evento> optional = eventosRepo.findById(id);
+        Evento evento = null;
         if (optional.isPresent())
-            employee = optional.get();
+            evento = optional.get();
         else
             throw new RuntimeException(
                     "Employee not found for id : " + id);
-        return employee;
+        return evento;
     }
     public void deleteViaId(long id)
     {
-        empRepo.deleteById(id);
+        eventosRepo.deleteById(id);
     }
 }

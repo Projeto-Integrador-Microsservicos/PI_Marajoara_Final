@@ -1,6 +1,8 @@
 package br.com.projetoMarajoara.Service;
 
+import br.com.projetoMarajoara.Model.Funcionario;
 import br.com.projetoMarajoara.Model.Morador;
+import br.com.projetoMarajoara.Repository.FuncionarioRepository;
 import br.com.projetoMarajoara.Repository.MoradorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,38 +11,37 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class FuncionarioService {
 
-    @Service
-    public class MoradorService {
-
         @Autowired
-        private MoradorRepository morRepo;
+        private FuncionarioRepository funcRepo;
 
-        public List<Morador> getAllMorador()
+        public List<Funcionario> getAllFunc()
         {
-            return morRepo.findAll();
+            return funcRepo.findAll();
         }
-        public void save(Morador morador) throws IOException
+
+        public void save(Funcionario funcionario) throws IOException
         {
-            morRepo.save(morador);
+            funcRepo.save(funcionario);
         }
-        public Morador getById(Long id)
+
+        public Funcionario getById(Long id)
         {
-            Optional<Morador> optional = morRepo.findById(id);
-            Morador morador = null;
+            Optional<Funcionario> optional = funcRepo.findById(id);
+            Funcionario funcionario = null;
             if (optional.isPresent())
-                morador = optional.get();
+                funcionario = optional.get();
             else
                 throw new RuntimeException(
                         "Employee not found for id : " + id);
-            return morador;
+            return funcionario;
         }
+
         public void deleteViaId(long id)
         {
-            morRepo.deleteById(id);
+            funcRepo.deleteById(id);
         }
-    }
-
 
 }

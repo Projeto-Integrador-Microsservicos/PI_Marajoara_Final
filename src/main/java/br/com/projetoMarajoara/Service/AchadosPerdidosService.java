@@ -1,6 +1,8 @@
 package br.com.projetoMarajoara.Service;
 
+import br.com.projetoMarajoara.Model.AchadosPerdidos;
 import br.com.projetoMarajoara.Model.Morador;
+import br.com.projetoMarajoara.Repository.AchadosPerdidosRepository;
 import br.com.projetoMarajoara.Repository.MoradorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,38 +11,35 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class AchadosPerdidosService {
 
-    @Service
-    public class MoradorService {
-
         @Autowired
-        private MoradorRepository morRepo;
+        private AchadosPerdidosRepository achadosRepo;
 
-        public List<Morador> getAllMorador()
+        public List<AchadosPerdidos> getAllItens()
         {
-            return morRepo.findAll();
+            return achadosRepo.findAll();
         }
-        public void save(Morador morador) throws IOException
+
+        public void save(AchadosPerdidos achados) throws IOException
         {
-            morRepo.save(morador);
+            achadosRepo.save(achados);
         }
-        public Morador getById(Long id)
+        public AchadosPerdidos getById(Long id)
         {
-            Optional<Morador> optional = morRepo.findById(id);
-            Morador morador = null;
+            Optional<AchadosPerdidos> optional = achadosRepo.findById(id);
+            AchadosPerdidos achados = null;
             if (optional.isPresent())
-                morador = optional.get();
+                achados = optional.get();
             else
                 throw new RuntimeException(
                         "Employee not found for id : " + id);
-            return morador;
+            return achados;
         }
         public void deleteViaId(long id)
         {
-            morRepo.deleteById(id);
+            achadosRepo.deleteById(id);
         }
-    }
-
 
 }

@@ -38,5 +38,5 @@ public class MoradorService {
         {
             morRepo.deleteById(id);
         }
-    }
+}
 
