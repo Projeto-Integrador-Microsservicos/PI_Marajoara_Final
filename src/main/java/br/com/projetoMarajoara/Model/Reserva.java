@@ -14,6 +14,15 @@ public class Reserva {
     private Long id;
     private LocalDate data;
     private String hora;
+    private String reservado_por;
+
+    public String getReservado_por() {
+        return reservado_por;
+    }
+
+    public void setReservado_por(String reservado_por) {
+        this.reservado_por = reservado_por;
+    }
 
     public Long getId() {
         return id;

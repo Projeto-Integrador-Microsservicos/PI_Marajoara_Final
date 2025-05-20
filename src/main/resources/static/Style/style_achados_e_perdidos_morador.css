@@ -1,0 +1,237 @@
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* Header */
+header {
+    background-color: #eed9c4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    font-size: 2rem;
+}
+
+.img_logo {
+    height: 7rem;
+}
+
+.img_nav_login {
+    height: 3.75rem;
+    cursor: pointer;
+}
+
+.nav_area_user {
+    display: flex;
+    align-items: baseline;
+    padding-right: 0.6rem;
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 3.125rem;
+    right: 0;
+    background-color: #fff;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.3125rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    padding: 0.625rem;
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    display: block;
+    padding: 0.3125rem 0.625rem;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+.title {
+    text-align: center;
+    font-size: 2.5rem; /* Ajustado para REM */
+    margin-bottom: 1.25rem; /* Ajustado para REM */
+    color: #000000;
+}
+
+
+
+/* Container Menu */
+.container-menu-containers {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    gap: 1.875rem;
+    padding: 1.875rem;
+    margin-left: 3.125rem;
+}
+
+.button-containter {
+    position: relative;
+    background-color: #EED9C4;
+    padding: 3.125rem;
+    width: 20rem;
+    border: 0.0625rem solid #bd5612;
+    
+}
+
+.menu-text {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.btn {
+    background-color: antiquewhite;
+    font-size: 1.5rem;
+    padding: 1.3rem;
+    margin: 0.3125rem 0;
+    text-align: center;
+    transition: 0.3s;
+    border-radius: 0.5rem;
+}
+
+.btn a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #d57617b1;
+}
+
+.btn a:hover {
+    color: #ce6f17;
+    transition: color 0.1s ease;
+}
+
+/* Container Principal */
+.container {
+    margin: 0 auto;
+    padding: 1.875rem;
+    max-width: 80%;
+    max-height: 40rem; /* Limita a altura máxima do container */
+    overflow-y: auto; /* Adiciona barra de rolagem vertical */
+    background-color: #ffffff;
+    border-radius: 1.5rem;
+    border: 0.0625rem solid #bd5612;
+    box-sizing: border-box;
+}
+
+
+/* Lista de Itens */
+.items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1.5rem;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.item_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eed9c4;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 0.0625rem solid #bd5612;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item_box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.img-item {
+    width: 100%;
+    height: auto;
+    max-height: 15rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.item_box ul {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    border: 0.0625rem solid #ccc;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+}
+
+.item_box ul li {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 0.5rem 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container-menu-containers {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .button-containter {
+        width: 100%;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .container {
+        width: 100%;
+        padding: 1rem;
+        max-height: 30rem; /* Ajusta a altura máxima para telas menores */
+    }
+
+    .container h1 {
+        font-size: 2rem;
+    }
+
+    .items {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .button-containter {
+        padding: 1rem;
+    }
+
+    .container {
+        padding: 0.8rem;
+        max-height: 25rem; /* Ajusta a altura máxima para telas muito pequenas */
+    }
+
+    .container h1 {
+        font-size: 1.8rem;
+    }
+
+    .items {
+        gap: 0.8rem;
+    }
+
+    .btn {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARAJOARA</title>
+
+    <link rel="stylesheet" href="../../Style/style_achados_e_perdidos_morador.css">
+
+</head>
+<body>
+    <!--header-->
+    <header>
+        <div class="nav_logo">
+            <img class="img_logo" src="../../imgs/img_logo.jpg">
+        </div>
+        <div class="nav_area_user">
+            <p class="p_nav">Olá, Fulano!</p>
+            <img class="img_nav_login" src="../../imgs/img_profile_icon.png" alt="" onclick="toggleDropdown()">
+            <div id="user-dropdown" class="dropdown-menu">
+                <a href="#" onclick="logout()">Sair</a>
+            </div>
+        </div>
+    </header>
+    
+    <!--menu lateral-->
+    <div class="container-menu-containers">
+        <!--botoes-->
+        <nav class="button-containter">
+            <h2 class="menu-text">Menu</h2>
+            <hr>
+            <div class="btn">
+                <a href="pagina_eventos.html">EVENTOS</a>
+            </div>
+            <div class="btn">
+                <a href="pagina_achados_e_perdidos_morador.html">ACHADOS E PERDIDOS</a>
+            </div>
+            <div class="btn">
+                <a href="pagina_aluguel_morador.html">ALUGUEL</a>
+            </div>
+            <div class="btn">
+                <a href="pagina_reclamacoes_morador.html">RECLAMAÇÕES</a>
+            </div>
+        </nav>
+        <!--container-->
+        <div class="container">
+            <h1 class="title">ACHADOS E PERDIDOS</h1>
+            <!--lista-->
+            <div class="items">
+                <div class="item_box">
+                    <ul class="item_box">
+                        <img src="../../imgs/download.jpg" alt="" class="img-item">
+                        <ul>
+                            <li>Horario que foi encontrado: aaaaa</li>
+                            <li>Local que foi encontrado: aaaa</li>
+                        </ul>
+                        <ul>
+                            <li>Nome do item: aaaa</li>
+                            <li>Descrição: aaaa</li>
+                        </ul>
+                    </ul>
+                </div>
+                <div class="item_box">
+                    <ul class="item_box">
+                        <img src="../../imgs/download.jpg" alt="" class="img-item">
+                        <ul>
+                            <li>Horario que foi encontrado: aaaaa</li>
+                            <li>Local que foi encontrado: aaaa</li>
+                        </ul>
+                        <ul>
+                            <li>Nome do item: aaaa</li>
+                            <li>Descrição: aaaa</li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../Scripts/Script_achados.js"></script>
+
+
+</body>
+</html>
