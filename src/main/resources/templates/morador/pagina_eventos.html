@@ -18,11 +18,12 @@
             <p class="p_nav">Olá, Fulano!</p>
             <img class="img_nav_login" src="../../imgs/img_profile_icon.png" alt="" onclick="toggleDropdown()">
             <div id="user-dropdown" class="dropdown-menu">
-                <a href="#" onclick="logout()">Sair</a>
+                <a th:href="@{/morador/perfil}">Perfil</a>
+                <a th:href="@{/logout}">Sair</a>
             </div>
         </div>
     </header>
-    
+
     <!--menu lateral-->
     <div class="container-menu-containers">
         <!--botoes-->
@@ -30,18 +31,19 @@
             <h2 class="menu-text">Menu</h2>
             <hr>
             <div class="btn">
-                <a href="pagina_eventos.html">EVENTOS</a>
+                <a th:href="@{/morador/eventos}">EVENTOS</a>
             </div>
             <div class="btn">
-                <a href="pagina_achados_e_perdidos_morador.html">ACHADOS E PERDIDOS</a>
+                <a th:href="@{/morador/achados}">ACHADOS E PERDIDOS</a>
             </div>
             <div class="btn">
-                <a href="pagina_aluguel_morador.html">ALUGUEL</a>
+                <a th:href="@{/morador/aluguel}">ALUGUEL</a>
             </div>
             <div class="btn">
-                <a href="pagina_reclamacoes_morador.html">RECLAMAÇÕES</a>
+                <a th:href="@{/morador/reclamacoes}">RECLAMAÇÕES</a>
             </div>
         </nav>
+    </div>
         <!--container-->
 <div class="container">
     <h1 class="title">EVENTOS</h1>

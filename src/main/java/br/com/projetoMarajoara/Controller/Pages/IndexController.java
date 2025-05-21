@@ -10,7 +10,7 @@ public class IndexController {
     //index
     @GetMapping("/")
     public String viewHomePage(Model model){
-        return "adm/pagina_achados_ADM";
+        return "morador/pagina_achados_e_perdidos_morador";
     }
 
     @GetMapping("/logOut")
