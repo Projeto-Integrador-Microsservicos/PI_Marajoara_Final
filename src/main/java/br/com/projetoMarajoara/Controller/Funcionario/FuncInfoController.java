@@ -28,4 +28,8 @@ public class FuncInfoController {
         return "redirect:/";
     }
 
+    public void aaaaaaaaaaaa(){
+
+    }
+
 }

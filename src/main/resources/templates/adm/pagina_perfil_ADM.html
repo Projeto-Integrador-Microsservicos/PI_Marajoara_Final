@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Reclamação - Marajoara</title>
+    <link rel="stylesheet" href="../../static/Style/Adm/style_perfil_ADM.css">
+</head>
+<body>
+<!-- Header -->
+<header>
+    <div class="nav_logo">
+        <a href="../Adm/pagina_eventos_ADM.html">
+            <img class="img_logo" src="../imgs/img_logo.jpg" alt="Logo Marajoara">
+        </a>
+    </div>
+    <div class="nav_area_user">
+        <p class="p_nav">Olá, Fulano!</p>
+        <img class="img_nav_login" src="../imgs/img_profile_icon.png" alt="Ícone do Usuário" onclick="toggleDropdown()">
+        <div id="user-dropdown" class="dropdown-menu">
+            <a th:href="@{/adm/perfil}">Perfil</a>
+            <a th:href="@{/adm/configuracoes}">Configurações</a>
+            <a th:href="@{/adm/eventos}"> Voltar</a>
+            <a th:href="@{/logout}">Sair</a>
+            <a href="../Adm/pagina_reclamacoes_ADM.html">Voltar</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="perfil-container">
+        <h1>Meu Perfil</h1>
+        <form id="perfil-form">
+            <div class="perfil-item">
+                <label for="perfil-nome">Nome:</label>
+                <input type="text" id="perfil-nome" value="Fulano da Silva" disabled>
+                <button type="button" onclick="habilitarEdicao('perfil-nome', this)">Alterar</button>
+                <button type="button" class="cancelar-btn" style="display:none;" onclick="cancelarEdicao('perfil-nome', this)">Cancelar</button>
+            </div>
+            <div class="perfil-item">
+                <label for="perfil-email">Email:</label>
+                <input type="email" id="perfil-email" value="fulano@email.com" disabled>
+                <button type="button" onclick="habilitarEdicao('perfil-email', this)">Alterar</button>
+                <button type="button" class="cancelar-btn" style="display:none;" onclick="cancelarEdicao('perfil-email', this)">Cancelar</button>
+            </div>
+            <div class="perfil-item">
+                <label for="perfil-telefone">Telefone:</label>
+                <input type="text" id="perfil-telefone" value="(11) 99999-9999" disabled>
+                <button type="button" onclick="habilitarEdicao('perfil-telefone', this)">Alterar</button>
+                <button type="button" class="cancelar-btn" style="display:none;" onclick="cancelarEdicao('perfil-telefone', this)">Cancelar</button>
+            </div>
+            <div class="perfil-item">
+                <label for="perfil-senha">Senha:</label>
+                <input type="text" id="perfil-senha" value="12345678" disabled>
+            </div>
+            <button type="submit" class="salvar-btn" style="display:none;">Salvar Alterações</button>
+        </form>
+    </section>
+</main>
+
+<!-- Confirmação de alteração -->
+<div id="confirmacao-alteracao" class="confirmacao-modal" style="display:none;">
+    <div class="confirmacao-content">
+        <p id="confirmacao-texto">Tem certeza que deseja alterar esta informação?</p>
+        <button type="button" onclick="confirmarAlteracao()">Sim</button>
+        <button type="button" onclick="fecharConfirmacao()">Não</button>
+    </div>
+</div>
+
+<script src="../../static/Scripts/ADM/script_perfilADM.js"></script>
+</body>
+</html>

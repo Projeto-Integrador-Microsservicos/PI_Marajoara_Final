@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Reclamação - Marajoara</title>
+    <link rel="stylesheet" href="../../static/Style/Adm/style_configuracoes_ADM.css">
+</head>
+<body>
+<!-- Header -->
+<header>
+    <div class="nav_logo">
+        <a href="../Adm/pagina_eventos_ADM.html">
+            <img class="img_logo" src="../imgs/img_logo.jpg" alt="Logo Marajoara">
+        </a>
+    </div>
+    <div class="nav_area_user">
+        <p class="p_nav">Olá, Fulano!</p>
+        <img class="img_nav_login" src="../imgs/img_profile_icon.png" alt="Ícone do Usuário" onclick="toggleDropdown()">
+        <div id="user-dropdown" class="dropdown-menu">
+            <a th:href="@{/adm/perfil}">Perfil</a>
+            <a th:href="@{/adm/configuracoes}">Configurações</a>
+            <a th:href="@{/adm/eventos}"> Voltar</a>
+            <a th:href="@{/logout}">Sair</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="porteiros-container">
+        <h1>Porteiros</h1>
+        <button onclick="openAddModal()">Adicionar Porteiro</button>
+        <table class="porteiros-table">
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody id="porteiros-tbody">
+            <!-- Linhas serão inseridas via JavaScript -->
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<!-- Modal para adicionar/editar porteiro -->
+<div id="porteiro-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title">Adicionar Porteiro</h2>
+        <form id="porteiro-form">
+            <label for="porteiro-nome">Nome:</label>
+            <input type="text" id="porteiro-nome" required>
+            <label for="porteiro-email">Email:</label>
+            <input type="email" id="porteiro-email" required>
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+</div>
+
+<script src="../../static/Scripts/ADM/script_configuracoesADM.js"></script>
+</body>
+</html>

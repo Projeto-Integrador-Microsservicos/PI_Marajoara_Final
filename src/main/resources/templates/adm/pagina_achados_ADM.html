@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARAJOARA</title>
+
+    <link rel="stylesheet" href="../../static/Style/Adm/style_achados_e_perdidos_ADM.css">
+
+</head>
+<body>
+<!--header-->
+<header>
+    <div class="nav_logo">
+        <a href="../Adm/pagina_eventos_ADM.html">
+            <img class="img_logo" src="../imgs/img_logo.jpg" alt="Logo Marajoara">
+        </a>
+    </div>
+    <div class="nav_area_user">
+        <p class="p_nav">Olá, Fulano!</p>
+        <img class="img_nav_login" src="../imgs/img_profile_icon.png" alt="Ícone do Usuário" onclick="toggleDropdown()">
+        <div id="user-dropdown" class="dropdown-menu">
+            <a th:href="@{/adm/perfil}">Perfil</a>
+            <a th:href="@{/adm/configuracoes}">Configurações</a>
+            <a th:href="@{/logout}">Sair</a>
+        </div>
+    </div>
+</header>
+
+<!--menu lateral-->
+<div class="container-menu-containers">
+    <!--botoes-->
+    <nav class="button-containter">
+        <h2 class="menu-text">Menu</h2>
+        <hr>
+        <div class="btn">
+            <a th:href="@{/adm/eventos}">EVENTOS</a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/adm/achados}">ACHADOS E PERDIDOS</a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/adm/aluguel}">ALUGUEL</a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/adm/reclamacoes}">RECLAMAÇÕES</a>
+        </div>
+    </nav>
+    <!--container-->
+    <div class="container">
+        <h1 class="title">ACHADOS E PERDIDOS</h1>
+
+
+
+        <!-- Lista de itens -->
+        <div id="lost-and-found-list" class="items">
+            <div class="item" onclick="handleItemClick(this)">
+                <img src="../imgs/item1.jpg" alt="Item 1" class="item-img">
+                <p><strong>Horário:</strong> 10:00</p>
+                <p><strong>Local:</strong> Entrada principal</p>
+                <p><strong>Nome:</strong> Chave</p>
+                <p><strong>Descrição:</strong> Chave com chaveiro azul</p>
+            </div>
+
+        </div>
+        <!-- Botão para adicionar um item -->
+        <div class="add-button-container">
+            <button onclick="openAddItemModal()">Adicionar</button>
+            <button onclick="enableEditMode()">Editar</button>
+            <button onclick="enableDeleteMode()">Excluir</button>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Modal para adicionar um item -->
+<div id="add-item-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Adicionar Item</h2>
+        <form id="add-item-form">
+            <label for="item-img">Foto do Item:</label>
+            <input type="file" id="item-img" accept="image/*" required>
+
+            <label for="item-time">Horário:</label>
+            <input type="time" id="item-time" required>
+
+            <label for="item-location">Local:</label>
+            <input type="text" id="item-location" placeholder="Digite o local" required>
+
+            <label for="item-name">Nome:</label>
+            <input type="text" id="item-name" placeholder="Digite o nome do item" required>
+
+            <label for="item-description">Descrição:</label>
+            <textarea id="item-description" placeholder="Digite a descrição do item" required></textarea>
+
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal para editar um item -->
+<div id="edit-item-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Editar Item</h2>
+        <form id="edit-item-form">
+            <label for="edit-item-img">Foto do Item:</label>
+            <input type="file" id="edit-item-img" accept="image/*">
+
+            <label for="edit-item-time">Horário:</label>
+            <input type="time" id="edit-item-time" required>
+
+            <label for="edit-item-location">Local:</label>
+            <input type="text" id="edit-item-location" placeholder="Digite o local" required>
+
+            <label for="edit-item-name">Nome:</label>
+            <input type="text" id="edit-item-name" placeholder="Digite o nome do item" required>
+
+            <label for="edit-item-description">Descrição:</label>
+            <textarea id="edit-item-description" placeholder="Digite a descrição do item" required></textarea>
+
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+</div>
+
+<script src="../../static/Scripts/ADM/script_achadosADM.js"></script>
+
+
+</body>
+</html>

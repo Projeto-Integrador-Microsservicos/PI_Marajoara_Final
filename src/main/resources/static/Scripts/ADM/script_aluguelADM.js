@@ -4,10 +4,6 @@ function toggleDropdown() {
         dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
     }
 
-function logout() {
-                // Redirecione para a página de login ou realize outra ação
-        window.location.href = '../index.html';
-    }
 
     // Fecha o dropdown ao clicar fora dele
     document.addEventListener('click', function (event) {
@@ -16,7 +12,7 @@ function logout() {
         if (!dropdown.contains(event.target) && event.target !== userIcon) {
             dropdown.style.display = 'none';
         }
-    }); 
+    });
 document.getElementById('reservation-form').addEventListener('submit', function(event) {
     event.preventDefault();
 

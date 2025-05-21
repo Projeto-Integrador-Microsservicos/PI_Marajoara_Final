@@ -1,4 +1,4 @@
-package br.com.projetoMarajoara.Controller;
+package br.com.projetoMarajoara.Controller.Pages;
 
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
@@ -11,6 +11,11 @@ public class IndexController {
     @GetMapping("/")
     public String viewHomePage(Model model){
         return "adm/pagina_achados_ADM";
+    }
+
+    @GetMapping("/logOut")
+    public String logOut(){
+        return "index";
     }
 
 }

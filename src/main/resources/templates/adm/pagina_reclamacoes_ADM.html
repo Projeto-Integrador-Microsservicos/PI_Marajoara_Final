@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Reclamação - Marajoara</title>
+    <link rel="stylesheet" href="../../static/Style/Adm/style_reclamacoes_ADM.css">
+</head>
+<body>
+<!-- Header -->
+<header>
+    <div class="nav_logo">
+        <a href="../Adm/pagina_eventos_ADM.html">
+            <img class="img_logo" src="../imgs/img_logo.jpg" alt="Logo Marajoara">
+        </a>
+    </div>
+    <div class="nav_area_user">
+        <p class="p_nav">Olá, Fulano!</p>
+        <img class="img_nav_login" src="../imgs/img_profile_icon.png" alt="Ícone do Usuário" onclick="toggleDropdown()">
+        <div id="user-dropdown" class="dropdown-menu">
+            <a th:href="@{/adm/perfil}">Perfil</a>
+            <a th:href="@{/adm/configuracoes}">Configurações</a>
+            <a th:href="@{/logout}">Sair</a>
+        </div>
+    </div>
+</header>
+
+<!--menu lateral-->
+<div class="container-menu-containers">
+    <!--botoes-->
+    <nav class="button-containter">
+        <h2 class="menu-text">Menu</h2>
+        <hr>
+        <div class="btn">
+            <a th:href="@{/adm/eventos}">EVENTOS</a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/adm/achados}">ACHADOS E PERDIDOS</a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/adm/aluguel}">ALUGUEL</a>
+        </div>
+        <div class="btn">
+            <a th:href="@{/adm/reclamacoes}">RECLAMAÇÕES</a>
+        </div>
+    </nav>
+</div>
+
+<!-- Formulário de Reclamação -->
+<main>
+    <section class="reclamacao-container">
+        <h1>SOLICITAÇÕES
+        </h1>
+        <form id="formReclamacao">
+            <div class="input-group">
+                <label for="titulo">Título</label>
+                <input type="text" id="titulo" name="titulo" placeholder="Digite o título da reclamação" required>
+            </div>
+            <div class="input-group">
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao" name="descricao" rows="5" placeholder="Descreva sua reclamação" required></textarea>
+            </div>
+            <div class="input-group">
+                <label for="categoria">Categoria</label>
+                <select id="categoria" name="categoria" required>
+                    <option value="" disabled selected>Selecione uma categoria</option>
+                    <option value="barulho">Barulho</option>
+                    <option value="manutencao">Manutenção</option>
+                    <option value="seguranca">Segurança</option>
+                    <option value="outros">Outros</option>
+                </select>
+            </div>
+            <button type="submit">Enviar Reclamação</button>
+        </form>
+    </section>
+</main>
+
+<script src="../../static/Scripts/ADM/script_reclamacoesADM.js"></script>
+</body>
+</html>
