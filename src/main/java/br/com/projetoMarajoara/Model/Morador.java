@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.time.LocalDateTime;
+
 @Entity
 public class Morador {
     @Id
@@ -16,7 +18,7 @@ public class Morador {
     private boolean twoFactorEnabled;
     private String secret;
     private String updatedBy;
-    private String updatedOn;
+    private LocalDateTime updatedOn;
 
     public boolean isTwoFactorEnabled() {
         return twoFactorEnabled;
@@ -42,11 +44,11 @@ public class Morador {
         this.updatedBy = updatedBy;
     }
 
-    public String getUpdatedOn() {
+    public LocalDateTime getUpdatedOn() {
         return updatedOn;
     }
 
-    public void setUpdatedOn(String updatedOn) {
+    public void setUpdatedOn(LocalDateTime updatedOn) {
         this.updatedOn = updatedOn;
     }
 

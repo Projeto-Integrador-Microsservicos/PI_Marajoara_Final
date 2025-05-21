@@ -1,6 +1,7 @@
 package br.com.projetoMarajoara.Model;
 
 import jakarta.persistence.*;
+import java.time.LocalTime;
 
 @Entity
 public class AchadosPerdidos {
@@ -9,8 +10,9 @@ public class AchadosPerdidos {
     private Long id;
     private String descricao;
     private String nome;
-    private String hora_encontro;
+    private LocalTime hora_encontro;
     private String lugar_encontro;
+
     private String imageNome;
     private String imageTipo;
 
@@ -41,11 +43,11 @@ public class AchadosPerdidos {
         this.nome = nome;
     }
 
-    public String getHora_encontro() {
+    public LocalTime getHora_encontro() {
         return hora_encontro;
     }
 
-    public void setHora_encontro(String hora_encontro) {
+    public void setHora_encontro(LocalTime hora_encontro) {
         this.hora_encontro = hora_encontro;
     }
 

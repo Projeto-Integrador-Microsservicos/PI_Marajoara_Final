@@ -1,15 +1,15 @@
 package br.com.projetoMarajoara.Service;
 
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Optional;
-
 import br.com.projetoMarajoara.Model.Evento;
 import br.com.projetoMarajoara.Repository.EventoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EventoService {
@@ -29,12 +29,12 @@ public class EventoService {
         eventosRepo.save(evento);
     }
 
-    public void save(Evento evento)
+    public void save(Evento evento) throws IOException
     {
         eventosRepo.save(evento);
     }
 
-    public void saveButkeepImage(Evento evento, Evento oldEvento)
+    public void saveButkeepImage(Evento evento, Evento oldEvento) throws IOException
     {
         evento.setImageNome(oldEvento.getImageNome());
         evento.setImageTipo(oldEvento.getImageTipo());

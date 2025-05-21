@@ -10,6 +10,7 @@ public class ADM {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     Long id;
+
     String nome;
     String email;
     String senha;

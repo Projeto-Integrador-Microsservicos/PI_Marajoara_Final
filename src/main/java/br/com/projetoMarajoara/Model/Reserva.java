@@ -13,7 +13,7 @@ public class Reserva {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
     private LocalDate data;
-    private String hora;
+    private String periodo;
     private String reservado_por;
 
     public String getReservado_por() {
@@ -40,11 +40,11 @@ public class Reserva {
         this.data = data;
     }
 
-    public String getHora() {
-        return hora;
+    public String getPeriodo() {
+        return periodo;
     }
 
-    public void setHora(String hora) {
-        this.hora = hora;
+    public void setPeriodo(String periodo) {
+        this.periodo = periodo;
     }
 }
