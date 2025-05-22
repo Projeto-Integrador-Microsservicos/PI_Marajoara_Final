@@ -68,29 +68,19 @@ header
 /*container more*/
 .container-menu-containers
 {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+	display: flex;
+	    justify-content: flex-start; 
+	    gap: 2rem; 
 }
 /*Lista*/
 .container
 {
-    position: relative;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    padding: 20rem;
-    border-radius: 1.5rem;
-    width: 45rem;
-    margin-top: 2rem;
-    font-size: 1.5rem;
-    border:  1px solid#bd5612;
-    top: 4rem;
-    left: 2rem;
-    margin: 0 auto; /* Centraliza o container */
-    padding: 0 1rem; /* Adiciona um pequeno padding interno */
-    max-width: 90%; /* Reduz a largura máxima do container */
-    box-sizing: border-box; /* Inclui bordas e paddings no tamanho total */
+	margin: 0 auto;
+	    padding: 1rem;
+	    max-width: 80%;
+	    border-radius: 1.5rem;
+	    border: 1px solid #bd5612;
+	    background-color: #ffffff;
 }
 
 .items
@@ -158,7 +148,6 @@ li
 .button-containter .btn a {
     color: #000000; /* Cor padrão do texto */
     text-decoration: none; /* Remove o sublinhado */
-
 }
 
 /* Cor ao passar o mouse */
