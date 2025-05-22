@@ -58,6 +58,14 @@ header {
     background-color: #f0f0f0;
 }
 
+.container_flex
+{
+	display: flex;
+	margin-top: 7rem;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
 /* Container principal */
 .container-menu-containers {
     display: flex;
@@ -115,12 +123,8 @@ header {
 
 /* Menu lateral */
 .button-containter {
-    position: relative;
-    top: 4.31rem;
     background-color: #EED9C4;
     padding: 3.125rem;
-    right: 4.8rem;
-    width: 20rem;
     border: 1px solid #bd5612;
 }
 

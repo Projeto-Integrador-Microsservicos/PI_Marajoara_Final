@@ -27,51 +27,71 @@
     </div>
 </header>
 
-<!--menu lateral-->
-<div class="container-menu-containers">
-    <!--botoes-->
-    <nav class="button-containter">
-        <h2 class="menu-text">Menu</h2>
-        <hr>
-        <div class="btn">
-            <a th:href="@{/adm/eventos}">EVENTOS</a>
-        </div>
-        <div class="btn">
-            <a th:href="@{/adm/achados}">ACHADOS E PERDIDOS</a>
-        </div>
-		<div>
-            <a th:href="@{/adm/aluguel}" class="btn">ALUGUEL</a>
-		</div>
-        <div class="btn">
-            <a th:href="@{/adm/reclamacoes}">RECLAMAÇÕES</a>
-        </div>
-    </nav>
-     <!--container-->
-    <div class="container">
-        <h1 class="title">ACHADOS E PERDIDOS</h1>
-
-        <!-- Lista de itens -->
-        <div id="lost-and-found-list" class="items">
-            <div class="item" onclick="handleItemClick(this)">
-                <img src="../imgs/item1.jpg" alt="Item 1" class="item-img">
-                <p><strong>Horário:</strong> 10:00</p>
-                <p><strong>Local:</strong> Entrada principal</p>
-                <p><strong>Nome:</strong> Chave</p>
-                <p><strong>Descrição:</strong> Chave com chaveiro azul</p>
-            </div>
-
-        </div>
-        <!-- Botão para adicionar um item -->
-        <div class="add-button-container">
-            <button onclick="openAddItemModal()">Adicionar</button>
-            <button onclick="enableEditMode()">Editar</button>
-            <button onclick="enableDeleteMode()">Excluir</button>
-        </div>
-
-    </div>
-
+<div class="container_flex">
+	<div class="container-menu-containers">
+	    <!--botoes-->
+	    <nav class="button-containter">
+	        <h2 class="menu-text">Menu</h2>
+	        <hr>
+	        <div class="btn">
+	            <a th:href="@{/adm/eventos}">EVENTOS</a>
+	        </div>
+	        <div class="btn">
+	            <a th:href="@{/adm/achados}">ACHADOS E PERDIDOS</a>
+	        </div>
+			<div class="btn">
+	            <a th:href="@{/adm/aluguel}" class="btn">ALUGUEL</a>
+			</div>
+	        <div class="btn">
+	            <a th:href="@{/adm/reclamacoes}">RECLAMAÇÕES</a>
+	        </div>
+	    </nav>
+	</div>
+	     <!--container-->
+	    <div class="container">
+	        <h1 class="title">ACHADOS E PERDIDOS</h1>
+	
+	        <!-- Lista de itens -->
+	        <div id="lost-and-found-list" class="items">
+	       
+	
+				<table style="width:80%" border="1" class = "table table-striped table-responsive-md">
+				<thead>
+				<tr>
+					<th>Foto</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Action</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:each="employee:${allemplist}">
+						<td> <img th:src="@{/employee/{id}/image(id=${employee.id})}" alt="Imagem do Funcion�rio" style="max-height: 50px" />  </td>
+						<td th:text="${employee.name}"></td>
+						<td th:text="${employee.email}"></td>
+						<td> <a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}"
+								class="btn btn-primary">Update</a>
+							<a th:href="@{/deleteEmployee/{id}(id=${employee.id})}"
+								class="btn btn-danger">Delete</a>
+							<a th:href="@{/tomaleEmailSender/{id}(id=${employee.id})}"
+								class="btn btn-success">Send Email</a>
+							<a href="https://wa.me/5511998686031?text=Tenho%20interesse%20em%20comprar%20seu%20carro" 
+							rel="external" target="_blank"> <img src="imagens/zapzap.png" alt="zap" style="max-height: 25px"> </a>
+					</td>
+				</tr>
+				</tbody>
+				</table>
+	
+	       </div>
+	        <!-- Botão para adicionar um item -->
+	        <div class="add-button-container">
+	            <button onclick="openAddItemModal()">Adicionar</button>
+	            <button onclick="enableEditMode()">Editar</button>
+	            <button onclick="enableDeleteMode()">Excluir</button>
+	        </div>
+	
+	    </div>
 </div>
-
 <!-- Modal para adicionar um item -->
 <div id="add-item-modal" class="modal">
     <div class="modal-content">
@@ -98,36 +118,6 @@
     </div>
 </div>
 
-<h3>Employee List</h3>
-<a th:href="@{/}" class="btn btn-primary btn-sm mb-3" >Add Employee</a>
-	<table style="width:80%" border="1"
-		   class = "table table-striped table-responsive-md">
-<thead>
-<tr>
-	<th>Foto</th>
-	<th>Name</th>
-	<th>Email</th>
-	<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr th:each="employee:${allemplist}">
-		<td> <img th:src="@{/employee/{id}/image(id=${employee.id})}" alt="Imagem do Funcion�rio" style="max-height: 50px" />  </td>
-		<td th:text="${employee.name}"></td>
-		<td th:text="${employee.email}"></td>
-		<td> <a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}"
-				class="btn btn-primary">Update</a>
-			<a th:href="@{/deleteEmployee/{id}(id=${employee.id})}"
-				class="btn btn-danger">Delete</a>
-			<a th:href="@{/tomaleEmailSender/{id}(id=${employee.id})}"
-				class="btn btn-success">Send Email</a>
-			<a href="https://wa.me/5511998686031?text=Tenho%20interesse%20em%20comprar%20seu%20carro" 
-			rel="external" target="_blank"> <img src="imagens/zapzap.png" alt="zap" style="max-height: 25px"> </a>
-	</td>
-</tr>
-</tbody>
-</table>
-</div>
 
 <!-- Modal para editar um item -->
 <div id="edit-item-modal" class="modal">

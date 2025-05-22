@@ -67,11 +67,15 @@ header {
     background-color: #f0f0f0;
 }
 
+.container_flex
+{
+	display: flex;
+	align-items: center;
+	padding: 10rem;
+}
+
 /* Menu lateral */
-.button-containter {
-    position: relative;
-    left: 6rem; /* Ajustado para REM */
-    top: 6rem; /* Ajustado para REM */
+.button-containter { /* Ajustado para REM */
     background-color: #EED9C4;
     padding: 3.125rem; /* Ajustado para REM */
     width: 22rem; /* Ajustado para REM */
@@ -113,11 +117,6 @@ html, body {
     padding: 0;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-}
-
 /* Ajusta o main para ocupar o espaço restante */
 main {
     flex: 1;
@@ -132,10 +131,8 @@ main {
     box-sizing: border-box;
 }
 
-main {
-    position: relative;
-    bottom: 25rem; /* Ajustado para REM */
-    left: 20rem; /* Ajustado para REM */
+main 
+{    
     margin-left: 15rem; /* Ajustado para REM */
     padding: 0.0625rem; /* Ajustado para REM */
     width: 40rem; /* Ajustado para REM */
@@ -150,11 +147,9 @@ main {
 }
 
 .reclamacao-container h1 {
-    position: relative;
-    bottom: 6rem; /* Ajustado para REM */
     text-align: center;
     font-size: 2.5rem; /* Ajustado para REM */
-    margin-bottom: 1.25rem; /* Ajustado para REM */
+    margin-bottom: 4rem; /* Ajustado para REM */
     color: #000000;
 }
 

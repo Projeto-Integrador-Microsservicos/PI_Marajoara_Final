@@ -19,7 +19,7 @@ public class DataConfiguration {
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/marajoara?useTimezone=true&serverTimezone=UTC");
         dataSource.setUsername("root");
-        dataSource.setPassword("p@$$w0rd");
+        dataSource.setPassword("");
         return (DataSource) dataSource;
     }
 

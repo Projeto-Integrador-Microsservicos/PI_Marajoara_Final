@@ -74,6 +74,7 @@ header {
     background-color: #f0f0f0;
 }
 
+
 /* Container more */
 .container-menu-containers {
     display: flex;
@@ -138,7 +139,8 @@ header {
 .reservation-container {
     position: relative;
     right: 1.5rem; /* Ajustado para REM */
-    top: 2rem; /* Ajustado para REM */
+    top: 2rem;
+    left: 17rem; /* Ajustado para REM */
     margin: 1.25rem; /* Ajustado para REM */
     padding: 1.25rem; /* Ajustado para REM */
     border: 0.0625rem solid #c76c16; /* Ajustado para REM */
@@ -185,7 +187,6 @@ header {
 }
 
 .reservation-container form {
-    position: relative;
     flex: 1;
     display: flex;
     flex-direction: column;
