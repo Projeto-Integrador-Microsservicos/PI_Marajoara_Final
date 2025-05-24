@@ -68,26 +68,26 @@ header
 .container_flex
 {
 	display: flex;
-	flex-direction: space-between;
-	margin-left: 23rem;
+	justify-content: space-evenly;
+	align-items: center;
 	margin-top: 6rem;
 }
 
 /*container more*/
 .container-menu-containers
 {
-	    justify-content: flex-start; 
-	    gap: 2rem; 
+	justify-content: flex-start; 
+	gap: 2rem; 
 }
 /*Lista*/
 .container
 {
-		margin: 0 auto;
-	    padding: 1rem;
-	    max-width: 80%;
-	    border-radius: 1.5rem;
-	    border: 1px solid #bd5612;
-	    background-color: #ffffff;
+	width: 50%;
+	padding: 1rem;
+	max-width: 80%;
+	border-radius: 1.5rem;
+	border: 1px solid #bd5612;
+	background-color: #ffffff;
 }
 
 .items
@@ -130,14 +130,10 @@ li
 /*Menu lateral*/
 .button-containter
 {
-    position: relative;
-    top: 3rem;
     background-color: #EED9C4;
     padding: 3.125rem;
-    left: 3rem;
     width: 20rem;
     border: 1px solid #bd5612;
-    margin-bottom: 10rem;
 }
 .button-containter .btn:hover{
     background-color:  #d57617b1;
@@ -343,77 +339,7 @@ li
     background-color: #ffe6e6;
 }
 
-/* Garante que o corpo e o HTML ocupem toda a largura e altura da tela */
-html, body {
-    margin: 0; /* Remove margens padrão */
-    padding: 0; /* Remove paddings padrão */
-    width: 100%; /* Garante que ocupe 100% da largura */
-    height: 100%; /* Garante que ocupe 100% da altura */
-    overflow-x: hidden; /* Remove rolagem horizontal */
-    box-sizing: border-box; /* Inclui bordas e paddings no tamanho total */
-}
 
-/* Ajusta o container principal */
-.container {
-    margin: 0 auto; /* Centraliza o container */
-    padding: 0 1rem; /* Adiciona um pequeno padding interno */
-    max-width: 80%; /* Reduz ainda mais a largura máxima do container */
-    box-sizing: border-box; /* Inclui bordas e paddings no tamanho total */
-    overflow: hidden; /* Garante que nenhum conteúdo extra ultrapasse o container */
-}
-
-/* Ajusta o menu lateral */
-.sidebar {
-    position: fixed; /* Fixa o menu lateral na tela */
-    top: 0;
-    left: 3rem; /* Move o menu lateral mais para a direita */
-    width: 15rem; /* Define a largura do menu lateral */
-    height: 100%; /* Ocupa toda a altura da tela */
-    background-color: #f4f4f4; /* Cor de fundo do menu */
-    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1); /* Adiciona uma sombra ao menu */
-    padding: 1rem; /* Adiciona padding interno */
-    box-sizing: border-box;
-}
-
-/* Ajusta o conteúdo principal para compensar o deslocamento do menu */
-.main-content {
-    margin-left: 18rem; /* Adiciona mais espaço para o menu lateral */
-    padding: 1rem;
-    box-sizing: border-box;
-}
-
-/* Ajusta o grid para evitar estouro horizontal */
-.items {
-    margin: 0 auto; /* Centraliza os itens */
-    padding: 0; /* Remove padding extra */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); /* Responsivo */
-    gap: 1.5rem; /* Espaçamento entre os itens */
-    max-width: 100%; /* Garante que os itens não ultrapassem a largura do container */
-    box-sizing: border-box;
-}
-
-/* Ajusta o modal para evitar estouro horizontal */
-.modal-content {
-    margin: 10% auto;
-    padding: 2rem;
-    border: 0.1rem solid #ccc;
-    border-radius: 0.8rem;
-    width: 50%;
-    max-width: 90%; /* Garante que o modal não ultrapasse a largura do container */
-    box-sizing: border-box;
-}
-
-/* Botões */
-.add-button-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Permite que os botões quebrem linha em telas menores */
-    gap: 1rem; /* Espaçamento entre os botões */
-    margin-top: 2rem;
-    max-width: 100%; /* Garante que os botões não ultrapassem a largura */
-    box-sizing: border-box;
-}
 
 /* Responsividade */
 @media (max-width: 768px) {

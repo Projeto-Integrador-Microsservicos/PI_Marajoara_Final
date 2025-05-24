@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<!--header-->
+
 <header>
     <div class="nav_logo">
         <a th:href="@{/adm/eventos}">
@@ -31,20 +31,28 @@
 	<div class="container-menu-containers">
 	    <!--botoes-->
 	    <nav class="button-containter">
-	        <h2 class="menu-text">Menu</h2>
+	        <h2 class="menu-text" style="text-align: center;">Menu</h2>
 	        <hr>
-	        <div class="btn">
-	            <a th:href="@{/adm/eventos}">EVENTOS</a>
-	        </div>
-	        <div class="btn">
-	            <a th:href="@{/adm/achados}">ACHADOS E PERDIDOS</a>
-	        </div>
-			<div class="btn">
-	            <a th:href="@{/adm/aluguel}" class="btn">ALUGUEL</a>
-			</div>
-	        <div class="btn">
-	            <a th:href="@{/adm/reclamacoes}">RECLAMAÇÕES</a>
-	        </div>
+	        <a th:href="@{/adm/eventos}" style="text-decoration: none; color: black; ">
+		        <div class="btn">
+		           EVENTOS
+		        </div>
+	        </a>
+	        <a th:href="@{/adm/achados}" style="text-decoration: none; color: black;">
+		        <div class="btn">
+		            ACHADOS E PERDIDOS
+		        </div>
+	        </a>
+	        <a th:href="@{/adm/aluguel}" style="text-decoration: none; color: black; ">
+		        <div class="btn">
+		            ALUGUEL
+		        </div>
+	        </a>
+	        <a th:href="@{/adm/reclamacoes}" style="text-decoration: none; color: black; ">
+		        <div class="btn">
+		            RECLAMAÇÕES
+		        </div>
+	        </a>
 	    </nav>
 	</div>
 	     <!--container-->
@@ -53,8 +61,6 @@
 	
 	        <!-- Lista de itens -->
 	        <div id="lost-and-found-list" class="items">
-	       
-	
 				<table style="width:80%" border="1" class = "table table-striped table-responsive-md">
 				<thead>
 				<tr>
@@ -145,7 +151,7 @@
     </div>
 </div>
 
-<script th:src="@{static/Scripts/ADM/script_achadosADM.js}"></script>
+<script th:src="@{/Scripts/ADM/script_achadosADM.js}"></script>
 
 
 </body>

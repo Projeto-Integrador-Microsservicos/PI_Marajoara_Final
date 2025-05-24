@@ -29,20 +29,28 @@
 	<div class="container-menu-containers">
 	    <!--botoes-->
 	    <nav class="button-containter">
-	        <h2 class="menu-text">Menu</h2>
+	        <h2 class="menu-text" style="text-align: center;">Menu</h2>
 	        <hr>
-	        <div class="btn">
-	            <a th:href="@{/adm/eventos}">EVENTOS</a>
-	        </div>
-	        <div class="btn">
-	            <a th:href="@{/adm/achados}">ACHADOS E PERDIDOS</a>
-	        </div>
-	        <div class="btn">
-	            <a th:href="@{/adm/aluguel}">ALUGUEL</a>
-	        </div>
-	        <div class="btn">
-	            <a th:href="@{/adm/reclamacoes}">RECLAMAÇÕES</a>
-	        </div>
+	         <a th:href="@{/adm/eventos}" style="text-decoration: none; color: black; ">
+		        <div class="btn">
+		           EVENTOS
+		        </div>
+	        </a>
+	        <a th:href="@{/adm/achados}" style="text-decoration: none; color: black;">
+		        <div class="btn">
+		            ACHADOS E PERDIDOS
+		        </div>
+	        </a>
+	        <a th:href="@{/adm/aluguel}" style="text-decoration: none; color: black; ">
+		        <div class="btn">
+		            ALUGUEL
+		        </div>
+	        </a>
+	        <a th:href="@{/adm/reclamacoes}" style="text-decoration: none; color: black; ">
+		        <div class="btn">
+		            RECLAMAÇÕES
+		        </div>
+	        </a>
 	    </nav>
 	</div>
 	    <!--container-->
@@ -101,7 +109,7 @@
 	            </div>
 	        </div>
 </div>
-        <script src="../../static/Scripts/ADM/script_eventosADM.js"></script>
+        <script th:src="@{/Scripts/ADM/script_eventosADM.js}"></script>
 
 
 </body>

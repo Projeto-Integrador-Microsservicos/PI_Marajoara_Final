@@ -29,20 +29,28 @@
 	<div class="container-menu-containers">
 	    <!--botoes-->
 	    <nav class="button-containter">
-	        <h2 class="menu-text">Menu</h2>
+	        <h2 class="menu-text" style="text-align: center;">Menu</h2>
 	        <hr>
-	        <div class="btn">
-	            <a th:href="@{/adm/eventos}">EVENTOS</a>
-	        </div>
-	        <div class="btn">
-	            <a th:href="@{/adm/achados}">ACHADOS E PERDIDOS</a>
-	        </div>
-	        <div class="btn">
-	            <a th:href="@{/adm/aluguel}">ALUGUEL</a>
-	        </div>
-	        <div class="btn">
-	            <a th:href="@{/adm/reclamacoes}">RECLAMAÇÕES</a>
-	        </div>
+	        <a th:href="@{/adm/eventos}" style="text-decoration: none; color: black; ">
+		        <div class="btn">
+		           EVENTOS
+		        </div>
+	        </a>
+	        <a th:href="@{/adm/achados}" style="text-decoration: none; color: black;">
+		        <div class="btn">
+		            ACHADOS E PERDIDOS
+		        </div>
+	        </a>
+	        <a th:href="@{/adm/aluguel}" style="text-decoration: none; color: black; ">
+		        <div class="btn">
+		            ALUGUEL
+		        </div>
+	        </a>
+	        <a th:href="@{/adm/reclamacoes}" style="text-decoration: none; color: black; ">
+		        <div class="btn">
+		            RECLAMAÇÕES
+		        </div>
+	        </a>
 	    </nav>
 	</div>
 	
@@ -52,15 +60,7 @@
 	        <h1>RECLAMAÇÕES
 	        </h1>
 	        <form id="formReclamacao">
-	            <div class="input-group">
-	                <label for="titulo">Título</label>
-	                <input type="text" id="titulo" name="titulo" placeholder="Digite o título da reclamação" required>
-	            </div>
-	            <div class="input-group">
-	                <label for="descricao">Descrição</label>
-	                <textarea id="descricao" name="descricao" rows="5" placeholder="Descreva sua reclamação" required></textarea>
-	            </div>
-	            <div class="input-group">
+	        <div class="input-group">
 	                <label for="categoria">Categoria</label>
 	                <select id="categoria" name="categoria" required>
 	                    <option value="" disabled selected>Selecione uma categoria</option>
@@ -70,11 +70,15 @@
 	                    <option value="outros">Outros</option>
 	                </select>
 	            </div>
+	            <div class="input-group">
+	                <label for="descricao">Descrição</label>
+	                <textarea id="descricao" name="descricao" rows="5" placeholder="Descreva sua reclamação" required></textarea>
+	            </div>
 	            <button type="submit">Enviar Reclamação</button>
 	        </form>
 	    </section>
 	</main>
 </div>
-<script src="../../static/Scripts/ADM/script_reclamacoesADM.js"></script>
+<script th:src="@{/Scripts/ADM/script_reclamacoesADM.js}"></script>
 </body>
 </html>

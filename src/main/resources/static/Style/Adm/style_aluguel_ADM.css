@@ -12,7 +12,8 @@
 html, body {
     margin: 0; /* Remove margens padrão */
     padding: 0; /* Remove paddings padrão */
-    width: 100%; /* Garante que ocupe 100% da largura */
+    width: 100%;
+    height: 100%; /* Garante que ocupe 100% da largura */
     overflow-x: hidden; /* Remove rolagem horizontal */
     box-sizing: border-box; /* Inclui bordas e paddings no tamanho total */
 }
@@ -74,6 +75,13 @@ header {
     background-color: #f0f0f0;
 }
 
+.menu_flex
+{
+	display: flex;
+	align-items: center;
+	margin-top: 13rem;
+	justify-content: space-evenly;
+}
 
 /* Container more */
 .container-menu-containers {
@@ -81,9 +89,9 @@ header {
     align-items: flex-start; /* Alinha o menu ao topo */
     justify-content: space-evenly; /* Centraliza mais o menu lateral */
     gap: 1.875rem; /* Ajustado para REM */
-    padding: 1.875rem; /* Ajustado para REM */
-    margin-left: 3.125rem; /* Ajustado para REM */
+    padding: 1.875rem; /* Ajustado para REM */ /* Ajustado para REM */
 }
+
 .title {
     position: relative;
     bottom: 1rem;
@@ -94,12 +102,9 @@ header {
 }
 
 /* Menu lateral */
-.button-containter {
-    position: relative;
-    top: 4.31rem;
+.button-containter { 
     background-color: #EED9C4;
     padding: 3.125rem;
-    right: 2rem;
     width: 27rem;
     border: 1px solid #bd5612;
 }
@@ -137,11 +142,7 @@ header {
 
 /* Container reservar local */
 .reservation-container {
-    position: relative;
-    right: 1.5rem; /* Ajustado para REM */
-    top: 2rem;
-    left: 17rem; /* Ajustado para REM */
-    margin: 1.25rem; /* Ajustado para REM */
+ /* Ajustado para REM */
     padding: 1.25rem; /* Ajustado para REM */
     border: 0.0625rem solid #c76c16; /* Ajustado para REM */
     border-radius: 0.5rem; /* Ajustado para REM */
@@ -149,11 +150,8 @@ header {
     width: 80rem; /* Ajustado para REM */
 }
 #location-description {
-
     position: relative;
     margin-top: 2rem;
-
-
 }
 .reservation-container h2 {
     position: relative;
