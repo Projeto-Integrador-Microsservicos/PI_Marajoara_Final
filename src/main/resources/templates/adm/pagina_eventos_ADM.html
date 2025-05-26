@@ -59,17 +59,13 @@
 		        <h1 class="title">EVENTOS</h1>
 		        <!--galeria-->
 		
-		        <div class="gallery" id="gallery">
-		            <div class="gallery-item" onclick="selectEventForEditing(this)">
-		                <img src="../imgs/img6.jpg" alt="Evento 1" class="gallery-img">
-		                <p class="gallery-description">Descrição do evento 1</p>
-		                <p class="gallery-date">Dia 10/05/2025</p>
-		            </div>
-		            <div class="gallery-item" onclick="selectEventForEditing(this)">
-		                <img src="../imgs/img7.jpg" alt="Evento 2" class="gallery-img">
-		                <p class="gallery-description">Descrição do evento 2</p>
-		                <p class="gallery-date">Dia 15/05/2025</p>
-		            </div>
+		        <div class="gallery" id="gallery" th:each="evento:${listaEventos}">
+		            <div class="gallery-item" onclick="selectEvent(this)">
+						<p hidden="true" th:text="${evento.id}" class="event-id"></p>
+		                <img th:src="@{imgEv/{id}/imagem(id=${evento.id})}" alt="Evento" class="gallery-img" style="max-height: 70px">
+		                <p class="gallery-description" th:text="${evento.descricao}" ></p>
+		                <p class="gallery-date" th:text="${evento.data}"></p>
+		            </div>		            
 		        </div>
 		
 		        <!-- Botões abaixo da galeria -->
@@ -80,25 +76,48 @@
 		        </div>
 			</div>
 	
-	        <!-- Modal para adicionar/editar eventos -->
-	        <div id="event-modal" class="modal">
+	        <!-- adicionar eventos -->
+	        <div id="event-modal-add" class="modal">
 	            <div class="modal-content">
 	                <span class="close" onclick="closeModal()">&times;</span>
-	                <h2 id="modal-title">Editar Evento</h2>
-	                <form id="event-form">
+	                <h2 id="modal-title">Add Evento</h2>
+	                <form  action="#" th:action="@{/addEvento}" th:object="${evento}" id="event-form" enctype="multipart/form-data"
+					method="POST">
 	                    <label for="event-img">Imagem do Evento:</label>
-	                    <input type="file" id="event-img" accept="image/*">
-	
+						<input type="file" name="image" id="event-img" accept="image/*">
+						
 	                    <label for="event-description">Descrição:</label>
-	                    <input type="text" id="event-description" placeholder="Digite a descrição do evento" required>
+	                    <input type="text" th:field="*{descricao}" id="event-description" placeholder="Digite a descrição do evento" required>
 	
 	                    <label for="event-date">Data:</label>
-	                    <input type="date" id="event-date" required>
+	                    <input type="date" th:field="*{data}" id="event-date" required>
 	
 	                    <button type="submit" id="save-event">Salvar</button>
 	                </form>
 	            </div>
 	        </div>
+			
+			<!-- editar eventos -->
+				        <div id="event-modal-edit" class="modal">
+				            <div class="modal-content">
+				                <span class="close" onclick="closeModal()">&times;</span>
+				                <h2 id="modal-title">Editar Evento</h2>
+				                <form  action="#" th:action="@{/updateEvento}" th:object="${evento}" id="event-form" enctype="multipart/form-data"
+								method="POST">
+								<input type="text"  th:field="*{id}" id="event-id">    
+								<label for="event-img">Imagem do Evento:</label>
+									<input type="file" name="image" id="event-img" accept="image/*">
+									
+				                    <label for="event-description">Descrição:</label>
+				                    <input type="text" th:field="*{descricao}" id="event-description" placeholder="Digite a descrição do evento" required>
+				
+				                    <label for="event-date">Data:</label>
+				                    <input type="date" th:field="*{data}" class="event-date" required>
+				
+				                    <button type="submit" id="save-event">Salvar</button>
+				                </form>
+				            </div>
+				        </div>
 	
 	        <!-- Popup -->
 	        <div id="popup" class="popup">

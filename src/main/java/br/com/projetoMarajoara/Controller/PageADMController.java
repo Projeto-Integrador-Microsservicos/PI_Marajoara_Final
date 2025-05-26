@@ -1,5 +1,6 @@
 package br.com.projetoMarajoara.Controller;
 
+import br.com.projetoMarajoara.Model.Evento;
 import br.com.projetoMarajoara.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,6 +48,7 @@ public class PageADMController {
     @GetMapping("/eventos")
     public String viewEventos(Model model){
         model.addAttribute("listaEventos", es.getAllEventos());
+        model.addAttribute("evento", new Evento());
         return "adm/pagina_eventos_ADM";
     }
 

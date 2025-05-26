@@ -1,5 +1,7 @@
 package br.com.projetoMarajoara.Model;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -7,8 +9,8 @@ public class Evento {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-    private String nome;
     private String descricao;
+    private LocalDate data;
     private String imageNome;
     private String imageTipo;
 
@@ -21,14 +23,6 @@ public class Evento {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getDescricao() {
@@ -62,4 +56,14 @@ public class Evento {
     public void setImageDados(byte[] imageDados) {
         this.imageDados = imageDados;
     }
+
+	public LocalDate getData() {
+		return data;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
+	}
+    
+    
 }
