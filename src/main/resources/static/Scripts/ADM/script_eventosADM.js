@@ -82,9 +82,6 @@ function openAddEventModal() {
     document.getElementById("event-img").value = "";
     document.getElementById("event-description").value = "";
     document.getElementById("event-date").value = "";
-
-    // Remove qualquer atributo de edição
-    document.getElementById("event-form").dataset.editing = "false";
 }
 
 
@@ -104,51 +101,18 @@ function openEditEventModal() {
     const dateElement = selectedItem.querySelector(".gallery-date");
 
     // Preenchendo os campos do formulário
-    document.getElementById("event-id").value = idElement.textContent;
-    document.getElementById("event-description").value = descriptionElement.textContent;
+    document.getElementById("event-id-edit").value = idElement.textContent;
+    document.getElementById("event-description-edit").value = descriptionElement.textContent;
 
-    // Converte data para yyyy-MM-dd
     const rawDate = dateElement?.textContent.trim().replace("Dia ", "");
     const dateObj = new Date(rawDate);
     if (!isNaN(dateObj)) {
-        document.getElementById("event-date").value = dateObj.toISOString().split("T")[0];
+        document.getElementById("event-date-edit").value = dateObj.toISOString().split("T")[0];
     } else {
         console.error("Data inválida:", rawDate);
     }
 
-    selectedItem.classList.add("editing");
-    document.getElementById("event-form").dataset.editing = "true";
 }
-
-/*
-// Abre o modal para editar um evento
-function openEditEventModal() {
-    const selectedItem = document.querySelector(".gallery-item.selected");
-    if (!selectedItem) {
-        alert("Por favor, selecione um evento para editar.");
-        return;
-    }
-	
-    const modal = document.getElementById("event-modal-edit");
-    modal.style.display = "block"; // Exibe o modal
-
-    // Preenche os campos do formulário com os dados do item selecionado
-	const idElement = selectedItem.querySelector(".event-id");
-    const imgElement = selectedItem.querySelector(".gallery-img");
-	//const imgSrc = selectedEvent.querySelector("img").src; //??  <-----------------------------------------------------------------------
-	const descriptionElement = selectedItem.querySelector(".gallery-description");
-    const dateElement = selectedItem.querySelector(".gallery-date");
-
-    document.getElementById("event-id").value = idElement.textContent;
-	document.getElementById("event-img").value = imgElement;
-	document.getElementById("event-description").value = descriptionElement.textContent;
- 	//document.getElementById("event-date").value = new Date(dateElement.textContent.replace("Dia ", "")).toISOString().split("T")[0];
-	
-	
-    // Marca o item como sendo editado
-    selectedItem.classList.add("editing");
-    document.getElementById("event-form").dataset.editing = "true";
-}*/
 
 // Fecha o modal
 function closeModal() {

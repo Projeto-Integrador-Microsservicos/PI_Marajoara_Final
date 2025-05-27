@@ -12,11 +12,11 @@
 <!--header-->
 <header>
     <div class="nav_logo">
-        <img class="img_logo" src="../imgs/img_logo.jpg" alt="Logo Marajoara">
+        <img class="img_logo" th:src="@{/Images/img_logo.jpg}" alt="Logo Marajoara">
     </div>
     <div class="nav_area_user">
         <p class="p_nav">Olá, Fulano!</p>
-        <img class="img_nav_login" src="../imgs/img_profile_icon.png" alt="Ícone do Usuário" onclick="toggleDropdown()">
+        <img class="img_nav_login" th:src="@{/Images/img_profile_icon.png}" alt="Ícone do Usuário" onclick="toggleDropdown()">
         <div id="user-dropdown" class="dropdown-menu">
             <a th:href="@{/adm/perfil}">Perfil</a>
             <a th:href="@{/adm/configuracoes}">Configurações</a>
@@ -59,10 +59,10 @@
 		        <h1 class="title">EVENTOS</h1>
 		        <!--galeria-->
 		
-		        <div class="gallery" id="gallery" th:each="evento:${listaEventos}">
-		            <div class="gallery-item" onclick="selectEvent(this)">
-						<p hidden="true" th:text="${evento.id}" class="event-id"></p>
-		                <img th:src="@{imgEv/{id}/imagem(id=${evento.id})}" alt="Evento" class="gallery-img" style="max-height: 70px">
+		        <div class="gallery" id="gallery">
+		            <div class="gallery-item" onclick="selectEvent(this)" th:each="evento:${listaEventos}">
+						<p hidden="true" th:text="${evento.id}" class="gallery-id"></p>
+		                <img th:src="@{/adm/imgEv/{id}/image(id=${evento.id})}" alt="Evento" class="gallery-img" style="max-height: 70px">
 		                <p class="gallery-description" th:text="${evento.descricao}" ></p>
 		                <p class="gallery-date" th:text="${evento.data}"></p>
 		            </div>		            
@@ -80,17 +80,17 @@
 	        <div id="event-modal-add" class="modal">
 	            <div class="modal-content">
 	                <span class="close" onclick="closeModal()">&times;</span>
-	                <h2 id="modal-title">Add Evento</h2>
-	                <form  action="#" th:action="@{/addEvento}" th:object="${evento}" id="event-form" enctype="multipart/form-data"
+	                <h2>Add Evento</h2>
+	                <form  action="#" th:action="@{/addEvento}" th:object="${evento}" enctype="multipart/form-data"
 					method="POST">
-	                    <label for="event-img">Imagem do Evento:</label>
-						<input type="file" name="image" id="event-img" accept="image/*">
+	                    <label for="event-img-add">Imagem do Evento:</label>
+						<input type="file" name="image" id="event-img-add" accept="image/*">
 						
-	                    <label for="event-description">Descrição:</label>
-	                    <input type="text" th:field="*{descricao}" id="event-description" placeholder="Digite a descrição do evento" required>
+	                    <label for="event-description-add">Descrição:</label>
+	                    <input type="text" th:field="*{descricao}" id="event-description-add" placeholder="Digite a descrição do evento" required>
 	
-	                    <label for="event-date">Data:</label>
-	                    <input type="date" th:field="*{data}" id="event-date" required>
+	                    <label for="event-date-add">Data:</label>
+	                    <input type="date" th:field="*{data}" id="event-date-add" required>
 	
 	                    <button type="submit" id="save-event">Salvar</button>
 	                </form>
@@ -101,18 +101,18 @@
 				        <div id="event-modal-edit" class="modal">
 				            <div class="modal-content">
 				                <span class="close" onclick="closeModal()">&times;</span>
-				                <h2 id="modal-title">Editar Evento</h2>
-				                <form  action="#" th:action="@{/updateEvento}" th:object="${evento}" id="event-form" enctype="multipart/form-data"
+				                <h2>Editar Evento</h2>
+				                <form  action="#" th:action="@{/updateEvento}" th:object="${evento}" enctype="multipart/form-data"
 								method="POST">
-								<input type="text"  th:field="*{id}" id="event-id">    
-								<label for="event-img">Imagem do Evento:</label>
-									<input type="file" name="image" id="event-img" accept="image/*">
+									<input type="text" hidden="true" th:field="*{id}" id="event-id-edit">    
+									<label for="event-img-edit">Imagem do Evento:</label>
+									<input type="file" name="image" id="event-img-edit" accept="image/*">
 									
-				                    <label for="event-description">Descrição:</label>
-				                    <input type="text" th:field="*{descricao}" id="event-description" placeholder="Digite a descrição do evento" required>
+				                    <label for="event-img-edit">Descrição:</label>
+				                    <input type="text" th:field="*{descricao}" id="event-description-edit" placeholder="Digite a descrição do evento" required>
 				
-				                    <label for="event-date">Data:</label>
-				                    <input type="date" th:field="*{data}" class="event-date" required>
+				                    <label for="event-img-edit">Data:</label>
+				                    <input type="date" th:field="*{data}" id="event-date-edit" required>
 				
 				                    <button type="submit" id="save-event">Salvar</button>
 				                </form>

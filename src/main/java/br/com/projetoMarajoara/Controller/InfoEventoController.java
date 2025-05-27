@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -45,21 +46,23 @@ public class InfoEventoController {
         return "redirect:/adm/eventos";
     }
     
-    @GetMapping("imgEv/{id}/imagem")
+    @GetMapping("adm/imgEv/{id}/image")
 	public ResponseEntity<byte[]> getEvImage(@PathVariable long id) throws IOException {
 		Evento ev = es.getById(id);
 
 		try {
-
-			if (ev.getImageDados() != null || ev.getImageTipo() != null) {
+	
+			if (!ev.getImageNome().equals("")) {
 				return ResponseEntity.ok().contentType(MediaType.parseMediaType(ev.getImageTipo()))
 						.body(ev.getImageDados());
 			}
-
-			ClassPathResource imgFile = new ClassPathResource("imagens/img_predios.jpg");
+			
+			ClassPathResource imgFile = new ClassPathResource("/static/Images/img_predios.jpg");
 			byte[] defaultImage = imgFile.getInputStream().readAllBytes();
 
-			return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(defaultImage);
+			return ResponseEntity.ok()
+				    .header(HttpHeaders.CONTENT_TYPE, "image/jpeg")
+				    .body(defaultImage);
 
 		} catch (IOException e) {
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
