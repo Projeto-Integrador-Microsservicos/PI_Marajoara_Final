@@ -17,11 +17,15 @@ public class InfoMailController {
 
 	@PostMapping("/send")
 	public String sendMail(@RequestParam String titulo, @RequestParam String mensagem, @RequestParam String email) {
+		System.out.println(titulo);
+		System.out.println(mensagem);
+		System.out.println(email);
+		System.out.println("tentou mandar email");
 		MailStructure mail = new MailStructure();
 		mail.setTitulo(titulo);
 		mail.setMensagem(mensagem);
 		ms.sendMail(email, mail);
-		return "redirect:/";
+		return "redirect:/adm/reclamacoes";
 	}
 
 }

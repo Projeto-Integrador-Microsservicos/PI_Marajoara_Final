@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -33,7 +34,6 @@ public class PageADMController {
         return "adm/pagina_perfil_ADM";
     }
 
-    /*ver se coloca id ou se vai pelo js ou como q coloca o e-mail do usuario aqui*/
     @GetMapping("/reclamacoes")
     public String viewreclamacoes(){
         return "adm/pagina_reclamacoes_ADM";
@@ -58,5 +58,14 @@ public class PageADMController {
         model.addAttribute("listaMoradores", ms.getAllMorador());
         return "adm/pagina_configuracoes_ADM";
     }
+    
+    @GetMapping("/viewUpdateFuncForm/{id}")
+    public String viewUpdateFuncionario(Model model, @PathVariable(value = "id") long id){
+        model.addAttribute("funcionario", fs.getById(id));
+        return "adm/pagina_update_func_ADM";
+    }
 
 }
+
+
+

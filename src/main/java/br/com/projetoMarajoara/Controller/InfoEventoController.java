@@ -42,7 +42,6 @@ public class InfoEventoController {
         }else {
             es.save(evento, image);
         }
-
         return "redirect:/adm/eventos";
     }
     
@@ -70,10 +69,10 @@ public class InfoEventoController {
 
 	}
 
-    @PostMapping("/deleteEvento/{id}")
+    @PostMapping("adm/deleteEvento/{id}")
     public String deleteThroughId(@PathVariable(value = "id") long id) {
         es.deleteViaId(id);
-        return "redirect:/";
+        return "redirect:/adm/eventos";
     }
 
 }

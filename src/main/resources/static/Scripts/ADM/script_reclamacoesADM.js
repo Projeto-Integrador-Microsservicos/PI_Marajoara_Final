@@ -6,9 +6,6 @@ function closePopup() {
         const dropdown = document.getElementById('user-dropdown');
         dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
     }
-
-
-
     // Fecha o dropdown ao clicar fora dele
     document.addEventListener('click', function (event) {
         const dropdown = document.getElementById('user-dropdown');

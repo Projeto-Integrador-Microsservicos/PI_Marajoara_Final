@@ -1,35 +1,39 @@
 package br.com.projetoMarajoara.Controller;
 
-import br.com.projetoMarajoara.Model.Funcionario;
-import br.com.projetoMarajoara.Service.FuncionarioService;
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import java.io.IOException;
+import br.com.projetoMarajoara.Model.Funcionario;
+import br.com.projetoMarajoara.Service.FuncionarioService;
 
 @Controller
 public class InfoFuncController {
 
     @Autowired
-    FuncionarioService fs;
-
+    FuncionarioService fs;    
+    
     @PostMapping("/addFunc")
-    public String addFunc(@RequestBody Funcionario func) throws IOException {
+    public String addFunc(@ModelAttribute Funcionario func) throws IOException {
         fs.save(func);
-        return "redirect:/";
+        return "redirect:/adm/configuracoes";
     }
 
-    @PostMapping("/deleteFunc/{id}")
+    @PostMapping("/updateFunc")
+    public String updateFunc(@ModelAttribute Funcionario func) throws IOException {
+        fs.save(func);
+        return "redirect:/adm/configuracoes";
+    }
+    
+    @GetMapping("/deleteFunc/{id}")
     public String deleteThroughId(@PathVariable(value = "id") long id) {
         fs.deleteViaId(id);
-        return "redirect:/";
-    }
-
-    public void aaaaaaaaaaaa(){
-
+        return "redirect:/adm/configuracoes";
     }
 
 }

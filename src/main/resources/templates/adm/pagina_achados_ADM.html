@@ -1,158 +1,142 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MARAJOARA</title>
 
-    <link rel="stylesheet" th:href="@{/Style/Adm/style_achados_e_perdidos_ADM.css}">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MARAJOARA</title>
+
+	<link rel="stylesheet" th:href="@{/Style/Adm/style_achados_e_perdidos_ADM.css}">
 
 </head>
+
 <body>
 
-<header>
-    <div class="nav_logo">
-        <a th:href="@{/adm/eventos}">
-            <img class="img_logo" src="../imgs/img_logo.jpg" alt="Logo Marajoara">
-        </a>
-    </div>
-    <div class="nav_area_user">
-        <p class="p_nav">Olá, Fulano!</p>
-        <img class="img_nav_login" src="../imgs/img_profile_icon.png" alt="Ícone do Usuário" onclick="toggleDropdown()">
-        <div id="user-dropdown" class="dropdown-menu">
-            <a th:href="@{/adm/perfil}">Perfil</a>
-            <a th:href="@{/adm/configuracoes}">Configurações</a>
-            <a th:href="@{/logout}">Sair</a>
-        </div>
-    </div>
-</header>
-
-<div class="container_flex">
-	<div class="container-menu-containers">
-	    <!--botoes-->
-	    <nav class="button-containter">
-	        <h2 class="menu-text" style="text-align: center;">Menu</h2>
-	        <hr>
-	        <a th:href="@{/adm/eventos}" style="text-decoration: none; color: black; ">
-		        <div class="btn">
-		           EVENTOS
-		        </div>
-	        </a>
-	        <a th:href="@{/adm/achados}" style="text-decoration: none; color: black;">
-		        <div class="btn">
-		            ACHADOS E PERDIDOS
-		        </div>
-	        </a>
-	        <a th:href="@{/adm/aluguel}" style="text-decoration: none; color: black; ">
-		        <div class="btn">
-		            ALUGUEL
-		        </div>
-	        </a>
-	        <a th:href="@{/adm/reclamacoes}" style="text-decoration: none; color: black; ">
-		        <div class="btn">
-		            RECLAMAÇÕES
-		        </div>
-	        </a>
-	    </nav>
-	</div>
-	     <!--container-->
-	    <div class="container">
-	        <h1 class="title">ACHADOS E PERDIDOS</h1>
-	
-	        <!-- Lista de itens -->
-	        <div class="container_flex_items">
-		        <div id="lost-and-found-list" class="items">
-					<table border="1" class = "table table-striped table-responsive-md">
-					<thead>
-					<tr>
-						<th>Foto</th>
-						<th>Name</th>
-						<th>Email</th>
-						<th>Action</th>
-					</tr>
-					</thead>
-					<tbody>
-					<tr th:each="employee:${allemplist}">
-							<td> <img th:src="@{/employee/{id}/image(id=${employee.id})}" alt="Imagem do Funcion�rio" style="max-height: 50px" />  </td>
-							<td th:text="${employee.name}"></td>
-							<td th:text="${employee.email}"></td>
-							<td> <a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}"
-									class="btn btn-primary">Update</a>
-								<a th:href="@{/deleteEmployee/{id}(id=${employee.id})}"
-									class="btn btn-danger">Delete</a>
-								<a th:href="@{/tomaleEmailSender/{id}(id=${employee.id})}"
-									class="btn btn-success">Send Email</a>
-								<a href="https://wa.me/5511998686031?text=Tenho%20interesse%20em%20comprar%20seu%20carro" 
-								rel="external" target="_blank"> <img src="imagens/zapzap.png" alt="zap" style="max-height: 25px"> </a>
-						</td>
-					</tr>
-					</tbody>
-					</table>
-		       </div>
-		        <!-- Botão para adicionar um item -->
-		        <div class="add-button-container">
-		            <button onclick="openAddItemModal()">Adicionar</button>
-		            <button onclick="enableEditMode()">Editar</button>
-		            <button onclick="enableDeleteMode()">Excluir</button>
-		        </div>
+	<header>
+		<div class="nav_logo">
+			<img class="img_logo" th:src="@{/Images/img_logo.jpg}" alt="Logo Marajoara">
+		</div>
+		<div class="nav_area_user">
+			<p class="p_nav">Olá, Fulano!</p>
+			<img class="img_nav_login" th:src="@{/Images/img_profile_icon.png}" alt="Ícone do Usuário"
+				onclick="toggleDropdown()">
+			<div id="user-dropdown" class="dropdown-menu">
+				<a th:href="@{/adm/perfil}">Perfil</a>
+				<a th:href="@{/adm/configuracoes}">Configurações</a>
+				<a th:href="@{/logout}">Sair</a>
 			</div>
-	    </div>
-</div>
-<!-- Modal para adicionar um item -->
-<div id="add-item-modal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2>Adicionar Item</h2>
-        <form id="add-item-form">
-            <label for="item-img">Foto do Item:</label>
-            <input type="file" id="item-img" accept="image/*" required>
+		</div>
+	</header>
 
-            <label for="item-time">Horário:</label>
-            <input type="time" id="item-time" required>
+	<div class="container_flex">
+		<div class="container-menu-containers">
+			<!--botoes-->
+			<nav class="button-containter">
+				<h2 class="menu-text" style="text-align: center;">Menu</h2>
+				<hr>
+				<a th:href="@{/adm/eventos}" style="text-decoration: none; color: black; ">
+					<div class="btn">
+						EVENTOS
+					</div>
+				</a>
+				<a th:href="@{/adm/achados}" style="text-decoration: none; color: black;">
+					<div class="btn">
+						ACHADOS E PERDIDOS
+					</div>
+				</a>
+				<a th:href="@{/adm/aluguel}" style="text-decoration: none; color: black; ">
+					<div class="btn">
+						ALUGUEL
+					</div>
+				</a>
+				<a th:href="@{/adm/reclamacoes}" style="text-decoration: none; color: black; ">
+					<div class="btn">
+						RECLAMAÇÕES
+					</div>
+				</a>
+			</nav>
+		</div>
+		<!--container-->
+		<div class="container">
+			<h1 class="title">ACHADOS E PERDIDOS</h1>
+			<!--lista-->
+			<div class="items">
+				<div class="item_box_out">
+					<ul class="item_box">
+						<img th:src="@{/Images/img_profile_icon.png}" alt="imagem" class="img-item">
+						<ul>
+							<li>Nome do item: aaaa</li>
+							<li>Descrição: aaaa</li>
+							<li>Horario que foi encontrado: aaaaa</li>
+							<li>Local que foi encontrado: aaaa</li>							
+						</ul>
+					</ul>
+				</div>
+			</div>
+			<!-- Botão para adicionar um item -->
+			<div class="add-button-container">
+				<button onclick="openAddItemModal()">Adicionar</button>
+				<button onclick="enableEditMode()">Editar</button>
+				<button onclick="enableDeleteMode()">Excluir</button>
+			</div>
+		</div>
 
-            <label for="item-location">Local:</label>
-            <input type="text" id="item-location" placeholder="Digite o local" required>
+	<!-- Modal para adicionar um item -->
+	<div id="event-modal-add" class="modal">
+		<div class="modal-content">
+			<span class="close" onclick="closeModal()">&times;</span>
+			<h2>Adicionar Item</h2>
+			<form id="add-item-form">
+				<label for="item-img">Foto do Item:</label>
+				<input type="file" id="item-img" accept="image/*" required>
 
-            <label for="item-name">Nome:</label>
-            <input type="text" id="item-name" placeholder="Digite o nome do item" required>
+				<label for="item-time">Horário:</label>
+				<input type="time" id="item-time" required>
 
-            <label for="item-description">Descrição:</label>
-            <textarea id="item-description" placeholder="Digite a descrição do item" required></textarea>
+				<label for="item-location">Local:</label>
+				<input type="text" id="item-location" placeholder="Digite o local" required>
 
-            <button type="submit">Salvar</button>
-        </form>
-    </div>
-</div>
+				<label for="item-name">Nome:</label>
+				<input type="text" id="item-name" placeholder="Digite o nome do item" required>
+
+				<label for="item-description">Descrição:</label>
+				<textarea id="item-description" placeholder="Digite a descrição do item" required></textarea>
+
+				<button type="submit">Salvar</button>
+			</form>
+		</div>
+	</div>
 
 
-<!-- Modal para editar um item -->
-<div id="edit-item-modal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2>Editar Item</h2>
-        <form id="edit-item-form">
-            <label for="edit-item-img">Foto do Item:</label>
-            <input type="file" id="edit-item-img" accept="image/*">
+	<!-- Modal para editar um item -->
+	<div id="edit-item-modal" class="modal">
+		<div class="modal-content">
+			<span class="close" onclick="closeModal()">&times;</span>
+			<h2>Editar Item</h2>
+			<form id="edit-item-form">
+				<label for="edit-item-img">Foto do Item:</label>
+				<input type="file" id="edit-item-img" accept="image/*">
 
-            <label for="edit-item-time">Horário:</label>
-            <input type="time" id="edit-item-time" required>
+				<label for="edit-item-time">Horário:</label>
+				<input type="time" id="edit-item-time" required>
 
-            <label for="edit-item-location">Local:</label>
-            <input type="text" id="edit-item-location" placeholder="Digite o local" required>
+				<label for="edit-item-location">Local:</label>
+				<input type="text" id="edit-item-location" placeholder="Digite o local" required>
 
-            <label for="edit-item-name">Nome:</label>
-            <input type="text" id="edit-item-name" placeholder="Digite o nome do item" required>
+				<label for="edit-item-name">Nome:</label>
+				<input type="text" id="edit-item-name" placeholder="Digite o nome do item" required>
 
-            <label for="edit-item-description">Descrição:</label>
-            <textarea id="edit-item-description" placeholder="Digite a descrição do item" required></textarea>
+				<label for="edit-item-description">Descrição:</label>
+				<textarea id="edit-item-description" placeholder="Digite a descrição do item" required></textarea>
 
-            <button type="submit">Salvar</button>
-        </form>
-    </div>
-</div>
+				<button type="submit">Salvar</button>
+			</form>
+		</div>
+	</div>
 
-<script th:src="@{/Scripts/ADM/script_achadosADM.js}"></script>
+	<script th:src="@{/Scripts/ADM/script_achadosADM.js}"></script>
 
 
 </body>
+
 </html>
