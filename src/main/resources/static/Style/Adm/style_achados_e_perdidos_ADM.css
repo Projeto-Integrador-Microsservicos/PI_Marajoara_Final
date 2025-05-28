@@ -407,8 +407,7 @@ header
     margin: 0 auto;
     padding: 1.875rem;
     max-width: 80%;
-    max-height: 40rem; /* Limita a altura máxima do container */
-    overflow-y: auto; /* Adiciona barra de rolagem vertical */
+    max-height: 50rem; /* Limita a altura máxima do container */
     background-color: #ffffff;
     border-radius: 1.5rem;
     border: 0.0625rem solid #bd5612;
@@ -421,10 +420,13 @@ header
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     gap: 1.5rem;
-    max-width: 100%;
+	overflow-y: auto;
+	max-height: 30rem;
+	width: 60rem;
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
+	outline: 2px black;
 }
 
 .item_box_out {
@@ -441,6 +443,7 @@ header
 .item_box {
     display: flex;
     flex-direction: row;
+	width: 20rem;
     align-items: center;
     background-color: rgb(192, 192, 192);
     padding: 1rem;
@@ -455,14 +458,12 @@ header
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.img-item {
-    width: 100%;
-    height: auto;
-    max-height: 15rem;
-    object-fit: cover;
-    border-radius: 0.5rem;
-    margin-bottom: 1rem;
+.img-item
+{
+	max-width: 5rem;
+	max-height: 9rem;		
 }
+
 
 .item_box ul {
     width: 100%;
@@ -532,4 +533,3 @@ header
         padding: 1rem;
     }
 }
-

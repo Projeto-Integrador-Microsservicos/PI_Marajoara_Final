@@ -41,7 +41,7 @@ public class PageADMController {
 
     @GetMapping("/achados")
     public String viewAchados(Model model){
-        model.addAttribute("listAchados", as.getAllItens());
+        model.addAttribute("listaAchados", as.getAllItens());
         return "adm/pagina_achados_ADM";
     }
 

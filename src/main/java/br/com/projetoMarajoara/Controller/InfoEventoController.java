@@ -33,7 +33,7 @@ public class InfoEventoController {
     }
 
     @PostMapping("/updateEvento")
-    public String updateAchado(@ModelAttribute("evento") Evento evento,
+    public String updateEvento(@ModelAttribute("evento") Evento evento,
                                @RequestParam("image") MultipartFile image) throws IOException {
 
         Evento oldImage = es.getById(evento.getId());

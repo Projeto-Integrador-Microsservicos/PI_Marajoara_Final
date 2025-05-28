@@ -7,11 +7,9 @@
 	<title>MARAJOARA</title>
 
 	<link rel="stylesheet" th:href="@{/Style/Adm/style_achados_e_perdidos_ADM.css}">
-
 </head>
 
 <body>
-
 	<header>
 		<div class="nav_logo">
 			<img class="img_logo" th:src="@{/Images/img_logo.jpg}" alt="Logo Marajoara">
@@ -61,80 +59,93 @@
 			<h1 class="title">ACHADOS E PERDIDOS</h1>
 			<!--lista-->
 			<div class="items">
-				<div class="item_box_out">
-					<ul class="item_box">
-						<img th:src="@{/Images/img_profile_icon.png}" alt="imagem" class="img-item">
+				<div class="item_box_out" th:each="achado:${listaAchados}">
+					<div class="item_box" onclick="selectEvent(this)">
+						<img th:src="@{/adm/imgAc/{id}/image(id=${achado.id})}" alt="imagem não carregada"
+							class="img-item">
 						<ul>
-							<li>Nome do item: aaaa</li>
-							<li>Descrição: aaaa</li>
-							<li>Horario que foi encontrado: aaaaa</li>
-							<li>Local que foi encontrado: aaaa</li>							
+							<li hidden="true" class="item-id" th:text="${achado.id}"></li>
+							<label>Nome do item:</label>
+							<li class="item-nome" th:text="${achado.nome}"></li>
+							<label>Descrição:</label>
+							<li class="item-descr" th:text="${achado.descricao}"></li>
+							<label>Achado às:</label>
+							<li class="item-hora" th:text="${achado.hora_encontro}"></li>
+							<label>Achado em:</label>
+							<li class="item-lugar" th:text="${achado.lugar_encontro}"></li>
 						</ul>
-					</ul>
+					</div>
 				</div>
 			</div>
 			<!-- Botão para adicionar um item -->
 			<div class="add-button-container">
 				<button onclick="openAddItemModal()">Adicionar</button>
-				<button onclick="enableEditMode()">Editar</button>
+				<button onclick="openEditEventModal()">Editar</button>
 				<button onclick="enableDeleteMode()">Excluir</button>
 			</div>
 		</div>
 
-	<!-- Modal para adicionar um item -->
-	<div id="event-modal-add" class="modal">
-		<div class="modal-content">
-			<span class="close" onclick="closeModal()">&times;</span>
-			<h2>Adicionar Item</h2>
-			<form id="add-item-form">
-				<label for="item-img">Foto do Item:</label>
-				<input type="file" id="item-img" accept="image/*" required>
+		<!-- Modal para adicionar um item -->
+		<div id="event-modal-add" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="closeModal()">&times;</span>
+				<h2>Adicionar Item</h2>
+				<form id="add-item-form" action="#" th:action="@{/addAchado}" th:object="${achado}"
+					enctype="multipart/form-data" method="POST">
 
-				<label for="item-time">Horário:</label>
-				<input type="time" id="item-time" required>
+					<label for="item-name">Nome:</label>
+					<input type="text" id="item-name" name="nome" placeholder="Digite o nome do item" required>
 
-				<label for="item-location">Local:</label>
-				<input type="text" id="item-location" placeholder="Digite o local" required>
+					<label for="item-description">Descrição:</label>
+					<textarea id="item-description" name="descricao" placeholder="Digite a descrição do item"
+						required></textarea>
 
-				<label for="item-name">Nome:</label>
-				<input type="text" id="item-name" placeholder="Digite o nome do item" required>
+					<label for="item-time">Horário:</label>
+					<input type="time" id="item-time" name="hora_encontro" required>
 
-				<label for="item-description">Descrição:</label>
-				<textarea id="item-description" placeholder="Digite a descrição do item" required></textarea>
+					<label for="item-location">Local:</label>
+					<input type="text" id="item-location" name="lugar_encontro" placeholder="Digite o local" required>
 
-				<button type="submit">Salvar</button>
-			</form>
+					<label for="item-img">Foto do Item:</label>
+					<input type="file" id="item-img" name="image" accept="image/*">
+
+					<button type="submit">Salvar</button>
+				</form>
+			</div>
 		</div>
-	</div>
 
 
-	<!-- Modal para editar um item -->
-	<div id="edit-item-modal" class="modal">
-		<div class="modal-content">
-			<span class="close" onclick="closeModal()">&times;</span>
-			<h2>Editar Item</h2>
-			<form id="edit-item-form">
-				<label for="edit-item-img">Foto do Item:</label>
-				<input type="file" id="edit-item-img" accept="image/*">
+		<!-- Modal para editar um item -->
+		<div id="event-modal-edit" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="closeModal()">&times;</span>
+				<h2>Editar Item</h2>
+				<form id="edit-item-form" action="#" th:action="@{/updateAchado}" th:object="${achado}"
+					enctype="multipart/form-data" method="POST">
+					<input type="text" hidden="true" name="id" id="edit-item-id">
 
-				<label for="edit-item-time">Horário:</label>
-				<input type="time" id="edit-item-time" required>
+					<label for="edit-item-name">Nome:</label>
+					<input type="text" id="edit-item-name" name="nome" placeholder="Digite o nome do item" required>
 
-				<label for="edit-item-location">Local:</label>
-				<input type="text" id="edit-item-location" placeholder="Digite o local" required>
+					<label for="edit-item-description">Descrição:</label>
+					<textarea id="edit-item-description" name="descricao" placeholder="Digite a descrição do item" required></textarea>
 
-				<label for="edit-item-name">Nome:</label>
-				<input type="text" id="edit-item-name" placeholder="Digite o nome do item" required>
+					<label for="edit-item-time">Horário:</label>
+					<input type="time" name="hora_encontro" id="edit-item-time" required>
 
-				<label for="edit-item-description">Descrição:</label>
-				<textarea id="edit-item-description" placeholder="Digite a descrição do item" required></textarea>
+					<label for="edit-item-location">Local:</label>
+					<input type="text" id="edit-item-location" name="lugar_encontro" placeholder="Digite o local"
+						required>
 
-				<button type="submit">Salvar</button>
-			</form>
+					<label for="edit-item-img">Foto do Item:</label>
+					<input type="file" id="edit-item-img" name="image" accept="image/*">
+
+					<button type="submit">Salvar</button>
+				</form>
+			</div>
 		</div>
-	</div>
 
-	<script th:src="@{/Scripts/ADM/script_achadosADM.js}"></script>
+		<script th:src="@{/Scripts/ADM/script_achadosADM.js}"></script>
 
 
 </body>

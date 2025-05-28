@@ -110,12 +110,12 @@ function selectEventForDeletion(element) {
 	if (!deleteMode) return; // Só permite selecionar se o modo de exclusão estiver ativo
 
 	// Remove a seleção anterior
-	const previousSelected = document.querySelector(".gallery-item.selected");
+	const previousSelected = document.querySelector(".item_box.selected");
 	if (previousSelected) {
 		previousSelected.classList.remove("selected");
 	}
 
-	const id = selectedEvent.querySelector(".gallery-id").textContent;
+	const id = selectedEvent.querySelector(".item-id").textContent;
 	// Marca o novo evento como selecionado
 	element.classList.add("selected");
 	selectedEvent = element;
