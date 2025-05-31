@@ -35,10 +35,6 @@
 				<label for="porteiro-email">Email:</label>
 				<input class="input_form" type="email" th:field="*{email}" required>
 				<input class="input_form" type="text" hidden="true" th:field="*{senha}" required>
-				<div class="flex-autentication">
-					<label for="porteiro-OAuth2" style="margin-right: 0.3rem">Autenticação de dois fatores:</label>
-					<input type="checkbox" th:field="*{twoFactorEnabled}" class="checkbox_twofactor">
-				</div>
 				<input type="hidden" th:field="*{updatedOn}">
 				<input type="hidden" th:field="*{updatedBy}">
 				<button type="submit">Salvar</button>

@@ -31,13 +31,26 @@ public class InfoFuncController {
         return "redirect:/adm/configuracoes";
     }
 
+    @PostMapping("/updatePerfilFunc")
+    public String updatePerfilFunc(@ModelAttribute("func") Funcionario func) throws IOException {
+    	Funcionario funcionario = fs.getByEmail(func.getEmail());
+    	if(!func.getSenha().contains("$2a$10$")) {
+        	String senhaCriptografada = ps.encode(func.getSenha());
+    		func.setUpdatedOn(LocalDateTime.now());
+            func.setSenha(senhaCriptografada);
+    	}
+    	func.setId(funcionario.getId());
+        fs.save(func);
+        return "redirect:/adm/configuracoes";
+    }
+    
     @PostMapping("/updateFunc")
     public String updateFunc(@ModelAttribute("func") Funcionario func) throws IOException {
-    	Funcionario funcionario = fs.getByEmail(func.getEmail());
-    	String senhaCriptografada = ps.encode(func.getSenha());
-    	func.setId(funcionario.getId());
-    	func.setUpdatedOn(LocalDateTime.now());
-        func.setSenha(senhaCriptografada);
+    	if(!func.getSenha().contains("$2a$10$")) {
+        	String senhaCriptografada = ps.encode(func.getSenha());
+    		func.setUpdatedOn(LocalDateTime.now());
+            func.setSenha(senhaCriptografada);
+    	}
         fs.save(func);
         return "redirect:/adm/configuracoes";
     }
