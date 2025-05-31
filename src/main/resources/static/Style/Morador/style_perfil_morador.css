@@ -31,12 +31,13 @@ height: 7rem; /* Ajustado para REM */
 }
 
 .img_nav_login {
-height: 3.75rem; /* Ajustado para REM */
+height: 3.75rem;
+margin-left: 1rem;
 }
 
 .nav_area_user {
 display: flex;
-align-items: baseline;
+align-items: center;
 padding-right: 0.6rem; /* Ajustado para REM */
 position: relative;
 }

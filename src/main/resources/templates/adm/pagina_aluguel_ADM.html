@@ -17,7 +17,7 @@
 			<img class="img_logo" th:src="@{/Images/img_logo.jpg}" alt="Logo Marajoara">
 		</div>
 		<div class="nav_area_user">
-			<p class="p_nav">Olá, Fulano!</p>
+			<p class="p_nav" th:text="${usuario.nome}"></p>
 			<img class="img_nav_login" th:src="@{/Images/img_profile_icon.png}" alt="Ícone do Usuário"
 				onclick="toggleDropdown()">
 			<div id="user-dropdown" class="dropdown-menu">
@@ -107,7 +107,6 @@
 	</div>
 
 
-	<script th:src=@{/Scripts/ADM/script_eventosADM.js}></script>
 	<script th:src="@{/Scripts/ADM/script_aluguelADM.js}"></script>
 
 </body>

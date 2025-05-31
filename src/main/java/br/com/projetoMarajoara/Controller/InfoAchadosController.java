@@ -32,7 +32,7 @@ public class InfoAchadosController {
         return "redirect:/adm/achados";
     }
     
-    @GetMapping("adm/imgAc/{id}/image")
+    @GetMapping("imgAc/{id}/image")
     public ResponseEntity<byte[]> getEvImage(@PathVariable long id) {
         AchadosPerdidos av = as.getById(id);
 

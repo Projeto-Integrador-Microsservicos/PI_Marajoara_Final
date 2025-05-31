@@ -13,10 +13,46 @@ public class Reserva {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
     private LocalDate data;
+    private String espaco;
+    private Boolean manha;
+    private Boolean tarde;
+    private Boolean noite;
     private String periodo;
     private String reservado_por;
+    
+    public Boolean getManha() {
+		return manha;
+	}
 
-    public String getReservado_por() {
+	public void setManha(Boolean manha) {
+		this.manha = manha;
+	}
+
+	public Boolean getTarde() {
+		return tarde;
+	}
+
+	public void setTarde(Boolean tarde) {
+		this.tarde = tarde;
+	}
+
+	public Boolean getNoite() {
+		return noite;
+	}
+
+	public void setNoite(Boolean noite) {
+		this.noite = noite;
+	}
+
+	public String getEspaco() {
+		return espaco;
+	}
+
+	public void setEspaco(String espaco) {
+		this.espaco = espaco;
+	}
+
+	public String getReservado_por() {
         return reservado_por;
     }
 
@@ -47,4 +83,5 @@ public class Reserva {
     public void setPeriodo(String periodo) {
         this.periodo = periodo;
     }
+
 }

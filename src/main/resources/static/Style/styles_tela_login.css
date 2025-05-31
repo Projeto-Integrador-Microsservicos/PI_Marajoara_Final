@@ -7,7 +7,7 @@ body, h1, h2, p, ul, li {
 
 /* Estilos gerais */
 body {
-    background-image: url(../imgs/img_predios.jpg); /* Caminho da imagem de fundo */
+    background-image: url(/Images/img_predios.jpg); /* Caminho da imagem de fundo */
     background-size: cover; /* Cobrir toda a tela */
     background-position: center; /* Centralizar a imagem */
     background-repeat: no-repeat; /* Não repetir a imagem */

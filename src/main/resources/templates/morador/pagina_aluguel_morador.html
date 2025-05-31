@@ -1,113 +1,131 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MARAJOARA</title>
 
-    <link rel="stylesheet" th:href="@{/Style/Morador/style_aluguel_morador.css}">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MARAJOARA</title>
+
+	<link rel="stylesheet" th:href="@{/Style/morador/style_aluguel_morador.css}">
 
 </head>
+
 <body>
-    <!--header-->
-    <header>
-        <div class="nav_logo">
-            <img class="img_logo" src="../../imgs/img_logo.jpg">
-        </div>
-        <div class="nav_area_user">
-            <p class="p_nav">Olá, Fulano!</p>
-            <img class="img_nav_login" src="../../imgs/img_profile_icon.png" alt="" onclick="toggleDropdown()">
-            <div id="user-dropdown" class="dropdown-menu">
-                <a th:href="@{/morador/perfil}">Perfil</a>
-                <a th:href="@{/logout}">Sair</a>
-            </div>
-        </div>
-    </header>
+	<!--header-->
+	<header>
+			<div class="nav_logo">
+				<img class="img_logo" th:src="@{/Images/img_logo.jpg}" alt="Logo Marajoara">
+			</div>
+			<div class="nav_area_user">
+				<p class="p_nav" th:text="${usuario.nome}"></p>
+				<img class="img_nav_login" th:src="@{/Images/img_profile_icon.png}" alt="Ícone do Usuário"
+					onclick="toggleDropdown()">
+				<div id="user-dropdown" class="dropdown-menu">
+					<a th:href="@{/morador/perfil}">Perfil</a>
+					<a th:href="@{/logout}">Sair</a>
+				</div>
+			</div>
+		</header>
 
-    <!--menu lateral-->
-    <div class="container-menu-containers">
-        <!--botoes-->
-        <nav class="button-containter">
-            <h2 class="menu-text">Menu</h2>
-            <hr>
-            <div class="btn">
-                <a th:href="@{/morador/eventos}">EVENTOS</a>
-            </div>
-            <div class="btn">
-                <a th:href="@{/morador/achados}">ACHADOS E PERDIDOS</a>
-            </div>
-            <div class="btn">
-                <a th:href="@{/morador/aluguel}">ALUGUEL</a>
-            </div>
-            <div class="btn">
-                <a th:href="@{/morador/reclamacoes}">RECLAMAÇÕES</a>
-            </div>
-        </nav>
-    </div>
-        <div class="reservation-container">
-             <h1 class="title">ALUGUEL</h1>
-            <div class="reservation-content">
-                <!-- Imagem e descrição -->
-                <div class="location-info">
-                    <img id="location-image" src="../../imgs/salao_de_festas.jpg" alt="Salão de Festas" class="location-image">
-                    <p id="location-description">Salão de Festas: Ideal para comemorações e eventos sociais.</p>
-                </div>
+	<div class="menu_flex">
+		<div class="container-menu-containers">
+			<!--botoes-->
+			<nav class="button-containter">
+				<h2 class="menu-text" style="text-align: center;">Menu</h2>
+				<hr>
+				<a th:href="@{/morador/eventos}" style="text-decoration: none; color: black; ">
+					<div class="btn">
+						EVENTOS
+					</div>
+				</a>
+				<a th:href="@{/morador/achados}" style="text-decoration: none; color: black;">
+					<div class="btn">
+						ACHADOS E PERDIDOS
+					</div>
+				</a>
+				<a th:href="@{/morador/aluguel}" style="text-decoration: none; color: black; ">
+					<div class="btn">
+						ALUGUEL
+					</div>
+				</a>
+				<a th:href="@{/morador/reclamacoes}" style="text-decoration: none; color: black; ">
+					<div class="btn">
+						RECLAMAÇÕES
+					</div>
+				</a>
+			</nav>
+		</div>
+		
+		<div class="reservation-container">
+			<h1 class="title">ALUGUEL</h1>
+			<div class="reservation-content">
+				<!-- Imagem e descrição -->
+				<div class="location-info">
+					<img id="location-image" th:src="@{/Images/salao_de_festas.jpg}" alt="Salão de Festas"
+						class="location-image">
+					<p id="location-description">Salão de Festas: Ideal para comemorações e eventos sociais.</p>
+				</div>
 
-                <!-- Formulário -->
-                <form id="reservation-form">
-                    <label for="location">Selecione o local:</label>
-                    <select id="location" name="location" required onchange="updateLocationInfo()">
-                        <option value="salão_de_festas" data-img="../../imgs/salao_de_festas.jpg" data-desc="Salão de Festas: Ideal para comemorações e eventos sociais.">Salão de Festas</option>
-                        <option value="churrasqueira" data-img="../../imgs/churrasqueira.jpg" data-desc="Churrasqueira: Perfeita para churrascos e encontros ao ar livre.">Churrasqueira</option>
-                        <option value="quadra" data-img="../../imgs/quadra.jpg" data-desc="Quadra: Ótima para esportes e atividades físicas.">Quadra</option>
-                        <option value="piscina" data-img="../../imgs/piscina.jpg" data-desc="Piscina: Excelente para relaxar e se divertir.">Piscina</option>
-                    </select>
+				<!-- Formulário -->
+				<form id="reservation-form" th:action="@{/addReserva}" th:object="${reserva}" method="post">
+				
+					<label for="location">Selecione o local:</label>
+					
+					<select id="location" name="espaco" required onchange="updateLocationInfo()">
+					
+						<option value="salao_de_festas" data-img="../imgs/salao_de_festas.jpg"
+							data-desc="Salão de Festas: Ideal para comemorações e eventos sociais.">Salão de Festas
+						</option>
+						
+						<option value="churrasqueira" data-img="../imgs/churrasqueira.jpg"
+							data-desc="Churrasqueira: Perfeita para churrascos e encontros ao ar livre.">Churrasqueira
+						</option>
+						
+						<option value="quadra" data-img="../imgs/quadra.jpg"
+							data-desc="Quadra: Ótima para esportes e atividades físicas.">Quadra</option>
+							
+						<option value="piscina" data-img="../imgs/piscina.jpg"
+							data-desc="Piscina: Excelente para relaxar e se divertir.">Piscina</option>
+							
+					</select>
+					<label for="date">Data:</label>
+					<input type="date" id="date" th:field="*{data}" required>
+					
+						 <label for="time">Período:</label>
+						 
+					    <div id="time-options">
+					        <input type="checkbox" th:field="*{manha}" id="manha" required> <label for="manha">Manhã</label>
+					        <input type="checkbox" th:field="*{tarde}" id="tarde" required> <label for="tarde">Tarde</label>
+					        <input type="checkbox" th:field="*{noite}" id="noite" required> <label for="noite">Noite</label>
+					    </div>			
+					
+					
+					<input type="hidden" id="time" name="time" required>
 
-                    <label for="date">Data:</label>
-                    <input type="date" id="date" name="date" required>
+					<button type="submit">Reservar</button>
+					
+				</form>
+			</div>
+			<div class="msg_reserva">
+				<div th:if="${erro}" class="alert alert-danger" style="color: red;">
+	    			<p th:text="${erro}"></p>
+				</div>
+		
+				<div th:if="${sucesso}" class="alert alert-success" style="color: green;">
+				    <p th:text="${sucesso}"></p>
+				</div>
+			</div>
+		</div>
 
-                    <label for="time">Horário:</label>
-                    <div id="time-options">
-                        <button type="button" class="time-button" data-time="08:00-12:00" onclick="selectTime(this)">Manhã (08:00 - 12:00)</button>
-                        <button type="button" class="time-button" data-time="13:00-17:00" onclick="selectTime(this)">Tarde (13:00 - 17:00)</button>
-                        <button type="button" class="time-button" data-time="18:00-22:00" onclick="selectTime(this)">Noite (18:00 - 22:00)</button>
-                    </div>
-                    <input type="hidden" id="time" name="time" required>
+	</div>
 
-                    <button type="submit">Reservar</button>
-                </form>
-            </div>
-        </div>
-    </div>
+	<script th:src="@{/Scripts/morador/script_aluguel.js}"></script>
+	
+	<script>
+		const hoje = new Date().toISOString().split("T")[0];
+		document.getElementById("date").setAttribute("min", hoje);
+	</script>
+	
+</body>
 
-        <script src="../../Scripts/script_aluguel.js"></script>
-    </body>
-
-
-<style>
-    #time-options {
-        display: flex;
-        gap: 1rem;
-        margin-top: 0.5rem;
-    }
-
-    .time-button {
-        padding: 0.5rem 1rem;
-        border: 1px solid #ccc;
-        border-radius: 0.25rem;
-        background-color: #f0f0f0;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    .time-button:hover {
-        background-color: #ddd;
-    }
-
-    .time-button.selected {
-        background-color: #A0522D;
-        color: #fff;
-        border-color: #8B4513;
-    }
-</style>
-    </html>
+</html>

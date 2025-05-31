@@ -1,13 +1,21 @@
 package br.com.projetoMarajoara.Controller;
 
-import br.com.projetoMarajoara.Model.Evento;
-import br.com.projetoMarajoara.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import br.com.projetoMarajoara.Model.Evento;
+import br.com.projetoMarajoara.Repository.UsuarioLogado;
+import br.com.projetoMarajoara.Service.AchadosPerdidosService;
+import br.com.projetoMarajoara.Service.EventoService;
+import br.com.projetoMarajoara.Service.FuncionarioService;
+import br.com.projetoMarajoara.Service.MoradorService;
+import br.com.projetoMarajoara.Service.ReservaService;
+
 
 @Controller
 @RequestMapping("/adm")
@@ -45,13 +53,6 @@ public class PageADMController {
         return "adm/pagina_achados_ADM";
     }
 
-    @GetMapping("/eventos")
-    public String viewEventos(Model model){
-        model.addAttribute("listaEventos", es.getAllEventos());
-        model.addAttribute("evento", new Evento());
-        return "adm/pagina_eventos_ADM";
-    }
-
     @GetMapping("/configuracoes")
     public String viewFuncionarios(Model model){
         model.addAttribute("listaFuncionarios", fs.getAllFunc());
@@ -65,7 +66,12 @@ public class PageADMController {
         return "adm/pagina_update_func_ADM";
     }
 
+    @GetMapping("/eventos")
+    public String viewEventos(Model model){
+        model.addAttribute("listaEventos", es.getAllEventos());
+        model.addAttribute("evento", new Evento());
+        return "adm/pagina_eventos_ADM";
+    }
+    
+    
 }
-
-
-

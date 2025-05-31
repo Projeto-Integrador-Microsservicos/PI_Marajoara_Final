@@ -14,11 +14,12 @@
 			<img class="img_logo" th:src="@{/Images/img_logo.jpg}" alt="Logo Marajoara">
 		</div>
 		<div class="nav_area_user">
-			<p class="p_nav">Olá, Fulano!</p>
+			<p class="p_nav" th:text="${usuario.nome}"></p>
 			<img class="img_nav_login" th:src="@{/Images/img_profile_icon.png}" alt="Ícone do Usuário"
 				onclick="toggleDropdown()">
 			<div id="user-dropdown" class="dropdown-menu">
-				<a th:href="@{/adm/perfil}">Perfil</a>				
+				<a th:href="@{/adm/perfil}">Perfil</a>
+				<a th:href="@{/adm/configuracoes}">Configurações</a>
 				<a th:href="@{/logout}">Sair</a>
 			</div>
 		</div>
@@ -28,21 +29,22 @@
 		<section class="perfil-container">
 			<h1>Atualizar Funcionário</h1>
 			<form id="perfil-form" action="#" th:action="@{/updateFunc}" th:object="${funcionario}" method="POST">
-				<input type="hidden" th:field="*{id}"/>
+				<input class="input_form" type="hidden" th:field="*{id}" />
 				<label for="porteiro-nome">Nome:</label>
-				<input type="text"  th:field="*{nome}" required>
+				<input class="input_form" type="text" th:field="*{nome}" required>
 				<label for="porteiro-email">Email:</label>
-				<input type="email" th:field="*{email}" required>
-				<label for="porteiro-senha">Senha:</label>
-				<input type="text"  th:field="*{senha}" required>
-				<label for="porteiro-OAuth2">Autenticação de dois fatores:</label>
-				<input type="checkbox" th:field="*{twoFactorEnabled}">
-				<input type="hidden" th:field="*{updatedOn}" >
-				<input type="hidden" th:field="*{updatedBy}" >
+				<input class="input_form" type="email" th:field="*{email}" required>
+				<input class="input_form" type="text" hidden="true" th:field="*{senha}" required>
+				<div class="flex-autentication">
+					<label for="porteiro-OAuth2" style="margin-right: 0.3rem">Autenticação de dois fatores:</label>
+					<input type="checkbox" th:field="*{twoFactorEnabled}" class="checkbox_twofactor">
+				</div>
+				<input type="hidden" th:field="*{updatedOn}">
+				<input type="hidden" th:field="*{updatedBy}">
 				<button type="submit">Salvar</button>
 			</form>
-			<a th:href="@{/adm/configuracoes}">Voltar</a>
-		</section>		
+			<a th:href="@{/adm/configuracoes}" class="btn_voltar">Voltar</a>
+		</section>
 	</main>
 
 	<!-- Confirmação de alteração -->

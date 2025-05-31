@@ -1,11 +1,15 @@
 package br.com.projetoMarajoara.Controller;
 
-import br.com.projetoMarajoara.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import br.com.projetoMarajoara.Model.Reserva;
+import br.com.projetoMarajoara.Service.AchadosPerdidosService;
+import br.com.projetoMarajoara.Service.EventoService;
+import br.com.projetoMarajoara.Service.ReservaService;
 
 @Controller
 @RequestMapping("/morador")
@@ -19,8 +23,9 @@ public class PageMoradorController {
     ReservaService rs;
 
     @GetMapping("/aluguel")
-    public String viewAluguel(){
-        return "morador/pagina_achados_morador";
+    public String mostrarPaginaAluguel(Model model) {
+        model.addAttribute("reserva", new Reserva());
+        return "morador/pagina_aluguel_morador";
     }
 
     @GetMapping("/perfil")
@@ -37,13 +42,13 @@ public class PageMoradorController {
     @GetMapping("/achados")
     public String viewAchados(Model model){
         model.addAttribute("listAchados", as.getAllItens());
-        return "adm/pagina_achados_ADM";
+        return "morador/pagina_achados_morador";
     }
 
     @GetMapping("/eventos")
     public String viewEventos(Model model){
         model.addAttribute("listaEventos", es.getAllEventos());
-        return "adm/pagina_eventos_ADM";
+        return "morador/pagina_eventos_morador";
     }
 
 }

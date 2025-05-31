@@ -79,6 +79,49 @@ header {
     max-width: 500px;
 }
 
+.input_form
+{
+	width: 100%;
+    padding: 0.8rem;
+    border: 0.1rem solid #ccc;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+}
+
+.flex-autentication
+{
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.btn_voltar
+{
+	background-color: #d57617;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.perfil-container button
+{
+	margin: 0 auto;
+	width: 30%;
+	background-color: #d57617;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
 .perfil-container h1 {
     margin-bottom: 28px;
     color: #2d3e50;
@@ -195,5 +238,5 @@ header {
     background: #d32f2f;
 }
 .confirmacao-content button:hover {
-    opacity: 0.85;
+    opacity: 0.85;
 }

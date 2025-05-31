@@ -12,19 +12,19 @@
 <body>
 	<!--header-->
 	<header>
-		<div class="nav_logo">
-			<img class="img_logo" th:src="@{/Images/img_logo.jpg}" alt="Logo Marajoara">
-		</div>
-		<div class="nav_area_user">
-			<p class="p_nav">Olá, Fulano!</p>
-			<img class="img_nav_login" th:src="@{/Images/img_profile_icon.png}" alt="Ícone do Usuário"
-				onclick="toggleDropdown()">
-			<div id="user-dropdown" class="dropdown-menu">
-				<a th:href="@{/adm/perfil}">Perfil</a>
-				<a th:href="@{/logout}">Sair</a>
+			<div class="nav_logo">
+				<img class="img_logo" th:src="@{/Images/img_logo.jpg}" alt="Logo Marajoara">
 			</div>
-		</div>
-	</header>
+			<div class="nav_area_user">
+				<p class="p_nav" th:text="${usuario.nome}"></p>
+				<img class="img_nav_login" th:src="@{/Images/img_profile_icon.png}" alt="Ícone do Usuário"
+					onclick="toggleDropdown()">
+				<div id="user-dropdown" class="dropdown-menu">
+					<a th:href="@{/adm/perfil}">Perfil</a>
+					<a th:href="@{/logout}">Sair</a>
+				</div>
+			</div>
+		</header>
 
 	<main>
 		<section class="porteiros-container">
@@ -33,38 +33,40 @@
 			<table class="porteiros-table">
 				<thead>
 					<tr>
-						<th>Nome</th>
-						<th>Email</th>
-						<th>Senha</th>
-						<th>2 fatores</th>
-						<th>Atualizado por</th>
-						<th>Atualizado em</th>
-						<th>Ações</th>
+						<th style="text-align: center">Nome</th>
+						<th style="text-align: center">Email</th>
+						<th style="text-align: center">2 fatores</th>
+						<th style="text-align: center">Atualizado por</th>
+						<th style="text-align: center">Atualizado em</th>
+						<th style="text-align: center">Ações</th>
 					</tr>
 				</thead>
 				<tbody id="porteiros-tbody">
 					<tr th:each="func:${listaFuncionarios}">
-						<td th:text="${func.nome}"></td>
-						<td th:text="${func.email}"></td>
-						<td th:text="${func.senha}"></td>
-						<td th:text="${func.twoFactorEnabled}"></td>
-						<td th:text="${func.updatedBy}"></td>
-						<td th:text="${func.updatedOn}"></td>
-						<td> <a th:href="@{/adm/viewUpdateFuncForm/{id}(id=${func.id})}"
-								class="btn btn-primary">Update</a>
-							<a th:href="@{/deleteFunc/{id}(id=${func.id})}" class="btn btn-danger">Delete</a>
+						<td th:text="${func.nome}" style="text-align: center"></td>
+						<td th:text="${func.email}" style="text-align: center"></td>
+						<td th:text="${func.twoFactorEnabled}" style="text-align: center"></td>
+						<td th:text="${func.updatedBy}" style="text-align: center"></td>
+						<td th:text="${func.updatedOn}" style="text-align: center"></td>
+						<td>
+						<div class=flex_buttons> 
+							<a th:href="@{/adm/viewUpdateFuncForm/{id}(id=${func.id})}" 
+							class="btn btn-primary">Update</a>
+							<a th:href="@{/deleteFunc/{id}(id=${func.id})}" 
+							class="btn btn-danger" style="margin-top: 3px">Delete</a>
+						</div>
 						</td>
 					</tr>
 				</tbody>
 			</table>
-			<a th:href="@{/adm/eventos}">Voltar</a>
+			<a th:href="@{/adm/eventos}" class="btn_voltar">Voltar</a>
 		</section>
 	</main>
 
 	<div id="event-modal-add" class="modal">
 		<div class="modal-content">
 			<span class="close" onclick="closeModal()">&times;</span>
-			<h2>Add Evento</h2>
+			<h2>Add Funcionario</h2>
 			<form action="#" th:action="@{/addFunc}" th:object="${funcionario}" method="POST">
 
 				<label for="event-img-add">Nome:</label>
@@ -88,3 +90,5 @@
 </body>
 
 </html>
+
+

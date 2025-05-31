@@ -13,20 +13,20 @@
 <body>
 	<!--header-->
 	<header>
-		<div class="nav_logo">
-			<img class="img_logo" th:src="@{/Images/img_logo.jpg}" alt="Logo Marajoara">
-		</div>
-		<div class="nav_area_user">
-			<p class="p_nav">Olá, Fulano!</p>
-			<img class="img_nav_login" th:src="@{/Images/img_profile_icon.png}" alt="Ícone do Usuário"
-				onclick="toggleDropdown()">
-			<div id="user-dropdown" class="dropdown-menu">
-				<a th:href="@{/adm/perfil}">Perfil</a>
-				<a th:href="@{/adm/configuracoes}">Configurações</a>
-				<a th:href="@{/logout}">Sair</a>
+			<div class="nav_logo">
+				<img class="img_logo" th:src="@{/Images/img_logo.jpg}" alt="Logo Marajoara">
 			</div>
-		</div>
-	</header>
+			<div class="nav_area_user">
+				<p class="p_nav" th:text="${usuario.nome}"></p>
+				<img class="img_nav_login" th:src="@{/Images/img_profile_icon.png}" alt="Ícone do Usuário"
+					onclick="toggleDropdown()">
+				<div id="user-dropdown" class="dropdown-menu">
+					<a th:href="@{/adm/perfil}">Perfil</a>
+					<a th:href="@{/adm/configuracoes}">Configurações</a>
+					<a th:href="@{/logout}">Sair</a>
+				</div>
+			</div>
+		</header>
 
 	<div class="container_flex">
 		<div class="container-menu-containers">
@@ -56,7 +56,7 @@
 				<div class="gallery" id="gallery">
 					<div class="gallery-item" onclick="selectEvent(this)" th:each="evento:${listaEventos}">
 						<p hidden="true" th:text="${evento.id}" class="gallery-id"></p>
-						<img th:src="@{/adm/imgEv/{id}/image(id=${evento.id})}" alt="Evento" class="gallery-img"
+						<img th:src="@{/imgEv/{id}/image(id=${evento.id})}" alt="Evento" class="gallery-img"
 							style="max-height: 70px">
 						<p class="gallery-description" th:text="${evento.descricao}"></p>
 						<p class="gallery-date" th:text="${#temporals.format(evento.data, 'dd/MM/yyyy')}"></p>

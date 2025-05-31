@@ -27,5 +27,8 @@ function openAddModal() {
 }
 
 function closeModal() {
-	document.getElementById('porteiro-modal').style.display = 'none';
+	const modal1 = document.getElementById("event-modal-add");
+
+	modal1.style.display = "none";
+
 }

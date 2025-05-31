@@ -3,6 +3,7 @@ package br.com.projetoMarajoara.Controller;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,14 +19,21 @@ public class InfoFuncController {
     @Autowired
     FuncionarioService fs;    
     
+    @Autowired
+    PasswordEncoder ps;
+    
     @PostMapping("/addFunc")
     public String addFunc(@ModelAttribute Funcionario func) throws IOException {
+    	String senhaCriptografada = ps.encode(func.getSenha());
+        func.setSenha(senhaCriptografada);
         fs.save(func);
         return "redirect:/adm/configuracoes";
     }
 
     @PostMapping("/updateFunc")
     public String updateFunc(@ModelAttribute Funcionario func) throws IOException {
+    	String senhaCriptografada = ps.encode(func.getSenha());
+        func.setSenha(senhaCriptografada);
         fs.save(func);
         return "redirect:/adm/configuracoes";
     }

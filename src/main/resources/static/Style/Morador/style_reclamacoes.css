@@ -23,22 +23,23 @@ header {
     align-items: center;
     justify-content: space-between;
     height: auto;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .img_logo {
-    height: 7rem; /* Ajustado para REM */
+    height: 6rem; /* Mantém o tamanho proporcional */
 }
 
 .img_nav_login {
-    height: 3.75rem; /* Ajustado para REM */
+	height: 2rem;
+	margin-left: 1rem;
 }
 
 .nav_area_user {
-    display: flex;
-    align-items: baseline;
-    padding-right: 0.6rem; /* Ajustado para REM */
-    position: relative;
+	display: flex;
+	align-items: center;
+	padding-right: 0.6rem; /* Ajustado para REM */
+	position: relative;
 }
 
 .dropdown-menu {
@@ -47,10 +48,10 @@ header {
     top: 3.125rem; /* Ajustado para REM */
     right: 0;
     background-color: #fff;
-    border: 0.0625rem solid #ccc; /* Ajustado para REM */
-    border-radius: 0.3125rem; /* Ajustado para REM */
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* Ajustado para REM */
-    padding: 0.625rem; /* Ajustado para REM */
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.3125rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    padding: 0.625rem;
     z-index: 1000;
 }
 
@@ -59,7 +60,7 @@ header {
     color: #333;
     font-size: 1rem;
     display: block;
-    padding: 0.3125rem 0.625rem; /* Ajustado para REM */
+    padding: 0.3125rem 0.625rem;
     transition: background-color 0.3s ease;
 }
 
@@ -67,11 +68,15 @@ header {
     background-color: #f0f0f0;
 }
 
+.container_flex
+{
+	display: flex;
+	align-items: center;
+	padding: 3rem 5rem 3rem 5rem;
+}
+
 /* Menu lateral */
-.button-containter {
-    position: relative;
-    left: 6rem; /* Ajustado para REM */
-    top: 6rem; /* Ajustado para REM */
+.button-containter { /* Ajustado para REM */
     background-color: #EED9C4;
     padding: 3.125rem; /* Ajustado para REM */
     width: 22rem; /* Ajustado para REM */
@@ -113,11 +118,6 @@ html, body {
     padding: 0;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-}
-
 /* Ajusta o main para ocupar o espaço restante */
 main {
     flex: 1;
@@ -132,10 +132,8 @@ main {
     box-sizing: border-box;
 }
 
-main {
-    position: relative;
-    bottom: 25rem; /* Ajustado para REM */
-    left: 20rem; /* Ajustado para REM */
+main 
+{    
     margin-left: 15rem; /* Ajustado para REM */
     padding: 0.0625rem; /* Ajustado para REM */
     width: 40rem; /* Ajustado para REM */
@@ -150,11 +148,9 @@ main {
 }
 
 .reclamacao-container h1 {
-    position: relative;
-    bottom: 6rem; /* Ajustado para REM */
     text-align: center;
     font-size: 2.5rem; /* Ajustado para REM */
-    margin-bottom: 1.25rem; /* Ajustado para REM */
+    margin-bottom: 4rem; /* Ajustado para REM */
     color: #000000;
 }
 
@@ -197,83 +193,5 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #a44b0f;
-}
-
-/* Responsividade para telas pequenas (máximo de 768px) */
-@media (max-width: 768px) {
-    /* Reorganiza o layout para que o menu lateral fique em cima */
-    .button-containter {
-        position: relative; /* Remove o deslocamento fixo */
-        left: 0; /* Remove o deslocamento horizontal */
-        top: 0; /* Remove o deslocamento vertical */
-        width: 100%; /* O menu ocupa toda a largura */
-        padding: 1.5rem; /* Ajusta o padding */
-        margin-bottom: 1.5rem; /* Adiciona espaço abaixo do menu */
-    }
-
-    /* Ajusta o formulário de reclamação */
-    main {
-        position: relative; /* Remove o deslocamento fixo */
-        bottom: 0; /* Remove o deslocamento vertical */
-        left: 0; /* Remove o deslocamento horizontal */
-        margin: 0 auto; /* Centraliza o conteúdo */
-        width: 90%; /* O conteúdo ocupa 90% da largura */
-        padding: 1rem; /* Ajusta o padding */
-    }
-
-    .reclamacao-container {
-        padding: 1.5rem; /* Ajusta o padding interno */
-        border-radius: 1rem; /* Ajusta as bordas arredondadas */
-    }
-
-    .reclamacao-container h1 {
-        font-size: 2rem; /* Reduz o tamanho da fonte */
-        bottom: 0; /* Remove o deslocamento vertical */
-    }
-
-    .input-group label,
-    .input-group input,
-    .input-group textarea,
-    .input-group select {
-        bottom: 0; /* Remove o deslocamento vertical */
-    }
-
-    button[type="submit"] {
-        bottom: 0; /* Remove o deslocamento vertical */
-        font-size: 1rem; /* Mantém o tamanho da fonte */
-        padding: 0.8rem 1.5rem; /* Ajusta o padding */
-    }
-}
-
-/* Responsividade para telas muito pequenas (máximo de 480px) */
-@media (max-width: 480px) {
-    .button-containter {
-        padding: 1rem; /* Reduz o padding */
-    }
-
-    main {
-        width: 100%; /* O conteúdo ocupa toda a largura */
-        padding: 0.8rem; /* Reduz o padding */
-    }
-
-    .reclamacao-container {
-        padding: 1rem; /* Reduz ainda mais o padding interno */
-    }
-
-    .reclamacao-container h1 {
-        font-size: 1.8rem; /* Reduz ainda mais o tamanho da fonte */
-    }
-
-    .input-group input,
-    .input-group textarea,
-    .input-group select {
-        font-size: 0.9rem; /* Ajusta o tamanho da fonte */
-        padding: 0.8rem; /* Ajusta o padding interno */
-    }
-
-    button[type="submit"] {
-        font-size: 0.9rem; /* Reduz o tamanho da fonte */
-        padding: 0.6rem 1rem; /* Ajusta o padding */
-    }
+    background-color: #a44b0f;
 }

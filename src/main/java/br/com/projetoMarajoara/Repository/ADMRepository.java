@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ADMRepository extends JpaRepository<ADM,Long> {
+
+	ADM findByEmail(String email);
+	
 }

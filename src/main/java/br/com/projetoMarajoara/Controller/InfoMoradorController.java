@@ -3,10 +3,12 @@ package br.com.projetoMarajoara.Controller;
 import br.com.projetoMarajoara.Model.Morador;
 import br.com.projetoMarajoara.Service.MoradorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
 
@@ -15,9 +17,32 @@ public class InfoMoradorController {
 
     @Autowired
     MoradorService ms;
+    
+    @Autowired
+    PasswordEncoder ps;
 
     @PostMapping("/addMorador")
-    public String addMorador(@RequestBody Morador morador) throws IOException {
+    public String addMorador(@ModelAttribute Morador morador) throws IOException {
+    	System.out.println("Asdfsdfgsdfghsdfgasdhfg");
+    	String senhaCriptografada = ps.encode(morador.getSenha());
+        morador.setSenha(senhaCriptografada);
+        ms.save(morador);
+        return "redirect:/";
+    }
+    
+    @PostMapping("/updateMorador")
+    public String updateMorador(@ModelAttribute Morador morador) throws IOException {
+    	String senhaCriptografada = ps.encode(morador.getSenha());
+        morador.setSenha(senhaCriptografada);
+        ms.save(morador);
+        return "redirect:/";
+    }
+    
+    @PostMapping("/updateSenha")
+    public String updateSenhaMorador(@RequestParam String email, @RequestParam String nova_senha) throws IOException {
+    	Morador morador = ms.getBtEmail(email);
+    	String senhaCriptografada = ps.encode(nova_senha);
+        morador.setSenha(senhaCriptografada);
         ms.save(morador);
         return "redirect:/";
     }

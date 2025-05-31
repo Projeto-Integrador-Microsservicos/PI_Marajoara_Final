@@ -45,7 +45,7 @@ public class InfoEventoController {
         return "redirect:/adm/eventos";
     }
     
-    @GetMapping("adm/imgEv/{id}/image")
+    @GetMapping("imgEv/{id}/image")
 	public ResponseEntity<byte[]> getEvImage(@PathVariable long id) throws IOException {
 		Evento ev = es.getById(id);
 

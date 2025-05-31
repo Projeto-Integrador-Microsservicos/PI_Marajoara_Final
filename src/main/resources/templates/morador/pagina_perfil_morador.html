@@ -9,21 +9,19 @@
 <body>
 <!-- Header -->
 <header>
-    <div class="nav_logo">
-        <a href="../../Pages/Morador/pagina_eventos.html">
-            <img class="img_logo" src="../../imgs/img_logo.jpg" alt="Logo Marajoara">
-        </a>
-    </div>
-    <div class="nav_area_user">
-        <p class="p_nav">Olá, Fulano!</p>
-        <img class="img_nav_login" src="../../imgs/img_profile_icon.png" alt="Ícone do Usuário" onclick="toggleDropdown()">
-        <div id="user-dropdown" class="dropdown-menu">
-            <a th:href="@{/morador/perfil}">Perfil</a>
-            <a th:href="@{/morador/eventos}"> Voltar</a>
-            <a th:href="@{/logout}">Sair</a>
-        </div>
-    </div>
-</header>
+		<div class="nav_logo">
+			<img class="img_logo" th:src="@{/Images/img_logo.jpg}" alt="Logo Marajoara">
+		</div>
+		<div class="nav_area_user" >
+			<p class="p_nav" th:text="${usuario.nome}"></p>
+			<img class="img_nav_login" th:src="@{/Images/img_profile_icon.png}" alt="Ícone do Usuário"
+				onclick="toggleDropdown()">
+			<div id="user-dropdown" class="dropdown-menu">
+				<a th:href="@{/morador/perfil}">Perfil</a>
+				<a th:href="@{/logout}">Sair</a>
+			</div>
+		</div>
+	</header>
 
 <main>
     <section class="perfil-container">
@@ -53,6 +51,7 @@
             </div>
             <button type="submit" class="salvar-btn" style="display:none;">Salvar Alterações</button>
         </form>
+		<a th:href="@{/morador/eventos}">Voltar</a>
     </section>
 </main>
 
