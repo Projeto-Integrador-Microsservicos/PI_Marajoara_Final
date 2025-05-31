@@ -1,6 +1,7 @@
 package br.com.projetoMarajoara.Controller;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,7 +24,7 @@ public class InfoFuncController {
     PasswordEncoder ps;
     
     @PostMapping("/addFunc")
-    public String addFunc(@ModelAttribute Funcionario func) throws IOException {
+    public String addFunc(@ModelAttribute("func") Funcionario func) throws IOException {
     	String senhaCriptografada = ps.encode(func.getSenha());
         func.setSenha(senhaCriptografada);
         fs.save(func);
@@ -31,8 +32,11 @@ public class InfoFuncController {
     }
 
     @PostMapping("/updateFunc")
-    public String updateFunc(@ModelAttribute Funcionario func) throws IOException {
+    public String updateFunc(@ModelAttribute("func") Funcionario func) throws IOException {
+    	Funcionario funcionario = fs.getByEmail(func.getEmail());
     	String senhaCriptografada = ps.encode(func.getSenha());
+    	func.setId(funcionario.getId());
+    	func.setUpdatedOn(LocalDateTime.now());
         func.setSenha(senhaCriptografada);
         fs.save(func);
         return "redirect:/adm/configuracoes";

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 @Controller
 public class InfoMoradorController {
@@ -34,6 +35,7 @@ public class InfoMoradorController {
     public String updateMorador(@ModelAttribute Morador morador) throws IOException {
     	String senhaCriptografada = ps.encode(morador.getSenha());
         morador.setSenha(senhaCriptografada);
+    	morador.setUpdatedOn(LocalDateTime.now());
         ms.save(morador);
         return "redirect:/";
     }
