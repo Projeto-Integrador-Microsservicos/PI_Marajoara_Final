@@ -30,20 +30,14 @@
             <div class="perfil-item">
                 <label for="perfil-nome">Nome:</label>
                 <input type="text" id="perfil-nome" value="Fulano da Silva" disabled>
-                <button type="button" onclick="habilitarEdicao('perfil-nome', this)">Alterar</button>
-                <button type="button" class="cancelar-btn" style="display:none;" onclick="cancelarEdicao('perfil-nome', this)">Cancelar</button>
             </div>
             <div class="perfil-item">
                 <label for="perfil-email">Email:</label>
                 <input type="email" id="perfil-email" value="fulano@email.com" disabled>
-                <button type="button" onclick="habilitarEdicao('perfil-email', this)">Alterar</button>
-                <button type="button" class="cancelar-btn" style="display:none;" onclick="cancelarEdicao('perfil-email', this)">Cancelar</button>
             </div>
             <div class="perfil-item">
                 <label for="perfil-telefone">Telefone:</label>
                 <input type="text" id="perfil-telefone" value="(11) 99999-9999" disabled>
-                <button type="button" onclick="habilitarEdicao('perfil-telefone', this)">Alterar</button>
-                <button type="button" class="cancelar-btn" style="display:none;" onclick="cancelarEdicao('perfil-telefone', this)">Cancelar</button>
             </div>
             <div class="perfil-item">
                 <label for="perfil-senha">Senha:</label>
@@ -51,7 +45,9 @@
             </div>
             <button type="submit" class="salvar-btn" style="display:none;">Salvar Alterações</button>
         </form>
-		<a th:href="@{/morador/eventos}">Voltar</a>
+        <div style="margin-top: 1.5rem;">
+			<a th:href="@{/morador/eventos}" class="btn_voltar">Voltar</a>
+		</div>
     </section>
 </main>
 

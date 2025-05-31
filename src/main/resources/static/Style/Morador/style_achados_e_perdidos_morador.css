@@ -71,11 +71,15 @@ header {
 
 .container_flex {
 	display: flex;
-	margin-top: 2rem;
 	align-items: center;
 	justify-content: space-evenly;
 }
 
+.container
+{
+	width: 70%;	
+	padding: 1rem 1rem 1rem 0.5rem;
+}
 
 .button-containter {
 	background-color: #EED9C4;
@@ -361,8 +365,7 @@ header {
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-evenly;
-	gap: 1.875rem;
-	padding: 1.875rem;/*  */
+	padding: 1rem 0.5rem 1rem 1rem;
 }
 
 .button-containter {

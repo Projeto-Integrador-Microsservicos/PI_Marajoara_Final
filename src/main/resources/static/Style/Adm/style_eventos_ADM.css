@@ -14,22 +14,23 @@ header {
     align-items: center;
     justify-content: space-between;
     height: auto;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .img_logo {
-    height: 7rem; /* Mantém o tamanho proporcional */
+    height: 6rem; /* Mantém o tamanho proporcional */
 }
 
 .img_nav_login {
-    height: 3.75rem;
+	height: 2rem;
+	margin-left: 1rem;
 }
 
 .nav_area_user {
-    display: flex;
-    align-items: baseline;
-    padding-right: 0.6rem;
-    position: relative; /* Necessário para posicionar o dropdown */
+	display: flex;
+	align-items: center;
+	padding-right: 0.6rem; /* Ajustado para REM */
+	position: relative;
 }
 
 .dropdown-menu {
@@ -71,8 +72,7 @@ header {
     display: flex;
     align-items: flex-start;
     justify-content: space-evenly;
-    gap: 1.875rem; 
-    padding: 1.875rem; 
+    padding: 1rem 0.5rem 1rem 1rem; 
 }
 
 .title {
@@ -148,8 +148,13 @@ header {
 .container_eventos_border
 {
 	border: 2px solid #bd5612;
-	padding: 2rem;
+	padding: 0.5rem;
 	border-radius: 1.5rem;
+}
+
+.container
+{
+	padding: 1rem 1rem 1rem 0.5rem;
 }
 
 .menu-text {
@@ -302,5 +307,5 @@ header {
 }
 
 .close:hover {
-    color: black;
+    color: black;
 }
