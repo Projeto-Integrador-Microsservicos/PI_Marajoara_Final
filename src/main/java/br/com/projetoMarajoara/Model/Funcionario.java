@@ -15,8 +15,6 @@ public class Funcionario {
     private String nome;
     private String email;
     private String senha;
-    private boolean twoFactorEnabled;
-    private String secret;
     private String updatedBy;
     private LocalDateTime updatedOn;
 
@@ -34,22 +32,6 @@ public class Funcionario {
 
     public void setUpdatedOn(LocalDateTime updatedOn) {
         this.updatedOn = updatedOn;
-    }
-
-    public boolean isTwoFactorEnabled() {
-        return twoFactorEnabled;
-    }
-
-    public void setTwoFactorEnabled(boolean twoFactorEnabled) {
-        this.twoFactorEnabled = twoFactorEnabled;
-    }
-
-    public String getSecret() {
-        return secret;
-    }
-
-    public void setSecret(String secret) {
-        this.secret = secret;
     }
 
     public Long getId() {
