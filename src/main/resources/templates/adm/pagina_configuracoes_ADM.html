@@ -35,7 +35,6 @@
 					<tr>
 						<th style="text-align: center">Nome</th>
 						<th style="text-align: center">Email</th>
-						<th style="text-align: center">2 fatores</th>
 						<th style="text-align: center">Atualizado por</th>
 						<th style="text-align: center">Atualizado em</th>
 						<th style="text-align: center">Ações</th>
@@ -45,7 +44,6 @@
 					<tr th:each="func:${listaFuncionarios}">
 						<td th:text="${func.nome}" style="text-align: center"></td>
 						<td th:text="${func.email}" style="text-align: center"></td>
-						<td th:text="${func.twoFactorEnabled}" style="text-align: center"></td>
 						<td th:text="${func.updatedBy}" style="text-align: center"></td>
 						<td th:text="${func.updatedOn}" style="text-align: center"></td>
 						<td>

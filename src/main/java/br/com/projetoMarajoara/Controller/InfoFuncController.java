@@ -1,6 +1,7 @@
 package br.com.projetoMarajoara.Controller;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,17 +24,33 @@ public class InfoFuncController {
     PasswordEncoder ps;
     
     @PostMapping("/addFunc")
-    public String addFunc(@ModelAttribute Funcionario func) throws IOException {
+    public String addFunc(@ModelAttribute("func") Funcionario func) throws IOException {
     	String senhaCriptografada = ps.encode(func.getSenha());
         func.setSenha(senhaCriptografada);
         fs.save(func);
         return "redirect:/adm/configuracoes";
     }
 
+    @PostMapping("/updatePerfilFunc")
+    public String updatePerfilFunc(@ModelAttribute("func") Funcionario func) throws IOException {
+    	Funcionario funcionario = fs.getByEmail(func.getEmail());
+    	if(!func.getSenha().contains("$2a$10$")) {
+        	String senhaCriptografada = ps.encode(func.getSenha());
+    		func.setUpdatedOn(LocalDateTime.now());
+            func.setSenha(senhaCriptografada);
+    	}
+    	func.setId(funcionario.getId());
+        fs.save(func);
+        return "redirect:/adm/configuracoes";
+    }
+    
     @PostMapping("/updateFunc")
-    public String updateFunc(@ModelAttribute Funcionario func) throws IOException {
-    	String senhaCriptografada = ps.encode(func.getSenha());
-        func.setSenha(senhaCriptografada);
+    public String updateFunc(@ModelAttribute("func") Funcionario func) throws IOException {
+    	if(!func.getSenha().contains("$2a$10$")) {
+        	String senhaCriptografada = ps.encode(func.getSenha());
+    		func.setUpdatedOn(LocalDateTime.now());
+            func.setSenha(senhaCriptografada);
+    	}
         fs.save(func);
         return "redirect:/adm/configuracoes";
     }

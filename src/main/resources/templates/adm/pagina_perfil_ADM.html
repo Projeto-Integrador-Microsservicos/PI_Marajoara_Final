@@ -29,7 +29,7 @@
 	<main>
 	    <section class="perfil-container">
 	        <h1>Meu Perfil</h1>
-	        <form id="perfil-form" action="#" th:action="@{/adm/updateFunc" th:object="${func}">
+	        <form id="perfil-form" action="#" th:action="@{/updatePerfilFunc}" th:object="${func}" method="post">
 	            <div class="perfil-item">
 	                <label for="perfil-nome">Nome:</label>
 	                <input type="text" id="perfil-nome" name="nome" th:value="${usuario.nome}" required>
@@ -42,8 +42,9 @@
 	                <label for="perfil-senha">Senha:</label>
 	                <input type="text" id="perfil-senha" name="senha" th:value="${usuario.senha}" required>
 	            </div>
+				
 				<input hidden="true" name="updatedBy" th:value="${usuario.nome}">
-	            <button type="submit" class="salvar-btn" style="display:none;">Salvar Alterações</button>
+	            <button type="submit" class="salvar-btn">Salvar Alterações</button>
 	        </form>
 	        <div style="margin-top: 1.5rem;">
 				<a th:href="@{/adm/eventos}" class="btn_voltar">Voltar</a>

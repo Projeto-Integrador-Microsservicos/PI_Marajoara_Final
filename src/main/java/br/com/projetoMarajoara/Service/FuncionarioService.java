@@ -43,5 +43,9 @@ public class FuncionarioService {
         {
             funcRepo.deleteById(id);
         }
+        
+        public Funcionario getByEmail(String email) {
+        	return funcRepo.findByEmail(email);
+        }
 
 }
