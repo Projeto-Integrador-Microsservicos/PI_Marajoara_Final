@@ -128,7 +128,10 @@
 		</div>
 
 		<script th:src="@{/Scripts/ADM/script_eventosADM.js}"></script>
-
+		<script>
+				const hoje = new Date().toISOString().split("T")[0];
+				document.getElementById("event-date-add").setAttribute("min", hoje);
+		</script>
 
 </body>
 

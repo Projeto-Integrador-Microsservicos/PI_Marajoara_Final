@@ -21,7 +21,7 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
             throws IOException, ServletException {
 
     	if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADM"))) {
-            response.sendRedirect("/adm/eventosLogin");
+            response.sendRedirect("/adm/eventos");
         } else if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_FUNCIONARIO"))) {
             
         	/*PRECISA MUDAR ISSO AQUI PRA TELA DE MORADOR CASO VA USAR  

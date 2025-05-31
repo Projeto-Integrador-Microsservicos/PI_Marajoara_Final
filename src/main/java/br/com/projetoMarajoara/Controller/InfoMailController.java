@@ -20,6 +20,9 @@ public class InfoMailController {
 	@PostMapping("/sendAdm")
 	public String sendMailAdm(@RequestParam String titulo, @RequestParam String mensagem, @RequestParam String email) {
 		MailStructure mail = new MailStructure();
+		System.out.println(titulo);
+		System.out.println(mensagem);
+		System.out.println(email);
 		mail.setTitulo(titulo);
 		mail.setMensagem(mensagem);
 		ms.sendMail(email, mail);
