@@ -244,6 +244,61 @@ header {
     border-color: #8B4513;
 }
 
+.porteiros-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    background: #fafbfc;
+    border-radius: 8px;
+    overflow-y: auto;
+	max-height: 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.porteiros-table th, .porteiros-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+.porteiros-table th {
+    background: #f2f2f2;
+    color: #2d3e50;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.porteiros-table tr:last-child td {
+    border-bottom: none;
+}
+
+.porteiros-table tr:hover {
+    background: #f5f7fa;
+}
+
+.porteiros-table button {
+    background: #d57617;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    margin-right: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+.porteiros-table button:last-child {
+    background: #d32f2f;
+}
+.porteiros-table button:hover {
+    opacity: 0.85;
+}
+
+.table-container {
+    max-height: 10rem;
+    overflow-y: auto;
+}
+
 /* Responsividade para telas pequenas */
 @media (max-width: 768px) {
     /* Ajusta o layout para que o menu lateral fique em cima */
@@ -259,13 +314,6 @@ header {
         position: relative; /* Remove o deslocamento lateral */
         top: 0; /* Remove o deslocamento vertical */
         left: 0; /* Remove o deslocamento horizontal */
-    }
-
-    /* Ajusta o container de reserva */
-    .reservation-container {
-        width: 100%; /* O container ocupa toda a largura */
-        margin: 0 auto; /* Centraliza o container */
-        padding: 1rem; /* Ajusta o padding */
     }
 
     .reservation-container h2 {

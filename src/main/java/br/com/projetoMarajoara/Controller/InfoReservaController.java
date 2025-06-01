@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +26,8 @@ public class InfoReservaController {
             return "redirect:/morador/aluguel";
         }
 
+        System.out.println(reserva.getReservado_por());
+        
         rs.save(reserva);
         redirectAttributes.addFlashAttribute("sucesso", "Reserva realizada com sucesso!");
         return "redirect:/morador/aluguel";
@@ -32,9 +35,9 @@ public class InfoReservaController {
 
 
 
-    @PostMapping("/deleteReserva/{id}")
+    @GetMapping("/deleteReserva/{id}")
     public String deleteThroughId(@PathVariable(value = "id") long id) {
         rs.deleteViaId(id);
-        return  "redirect:/morador/aluguel";
+        return  "redirect:/adm/aluguel";
     }
 }

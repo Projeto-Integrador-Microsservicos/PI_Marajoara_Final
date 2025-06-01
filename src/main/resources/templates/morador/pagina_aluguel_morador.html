@@ -93,13 +93,14 @@
 						 <label for="time">Período:</label>
 						 
 					    <div id="time-options">
-					        <input type="checkbox" th:field="*{manha}" id="manha" required> <label for="manha">Manhã</label>
-					        <input type="checkbox" th:field="*{tarde}" id="tarde" required> <label for="tarde">Tarde</label>
-					        <input type="checkbox" th:field="*{noite}" id="noite" required> <label for="noite">Noite</label>
+					        <input type="checkbox" th:field="*{manha}" id="manha" > <label for="manha">Manhã</label>
+					        <input type="checkbox" th:field="*{tarde}" id="tarde" > <label for="tarde">Tarde</label>
+					        <input type="checkbox" th:field="*{noite}" id="noite" > <label for="noite">Noite</label>
 					    </div>			
 					
 					
-					<input type="hidden" id="time" name="time" required>
+					<input id="time" type="hidden" required>
+					<input type="hidden" name="reservado_por" th:value="${usuario.nome}" required>
 
 					<button type="submit">Reservar</button>
 					
