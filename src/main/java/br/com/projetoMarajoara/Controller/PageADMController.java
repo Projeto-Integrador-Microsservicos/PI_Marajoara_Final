@@ -31,7 +31,8 @@ public class PageADMController {
     ReservaService rs;
 
     @GetMapping("/aluguel")
-    public String viewAluguel(){
+    public String viewAluguel(Model model){
+    	model.addAttribute("listaAluguel", rs.getAllReservas());
         return "adm/pagina_aluguel_ADM";
     }
 
