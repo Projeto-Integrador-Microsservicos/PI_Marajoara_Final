@@ -18,41 +18,41 @@ background-color: #f9f9f9;
 
 /* Header */
 header {
-background-color: #eed9c4;
-display: flex;
-align-items: center;
-justify-content: space-between;
-height: auto;
-font-size: 2rem;
+    background-color: #eed9c4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    font-size: 1.5rem;
 }
 
 .img_logo {
-height: 7rem; /* Ajustado para REM */
+    height: 6rem; /* Mantém o tamanho proporcional */
 }
 
 .img_nav_login {
-height: 3.75rem;
-margin-left: 1rem;
+	height: 2rem;
+	margin-left: 1rem;
 }
 
 .nav_area_user {
-display: flex;
-align-items: center;
-padding-right: 0.6rem; /* Ajustado para REM */
-position: relative;
+	display: flex;
+	align-items: center;
+	padding-right: 0.6rem; /* Ajustado para REM */
+	position: relative;
 }
 
 .dropdown-menu {
-display: none;
-position: absolute;
-top: 3.125rem; /* Ajustado para REM */
-right: 0;
-background-color: #fff;
-border: 0.0625rem solid #ccc; /* Ajustado para REM */
-border-radius: 0.3125rem; /* Ajustado para REM */
-box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* Ajustado para REM */
-padding: 0.625rem; /* Ajustado para REM */
-z-index: 1000;
+    display: none;
+    position: absolute;
+    top: 3.125rem; /* Ajustado para REM */
+    right: 0;
+    background-color: #fff;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.3125rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    padding: 0.625rem;
+    z-index: 1000;
 }
 
 .dropdown-menu a {
@@ -153,22 +153,17 @@ background: #a26812;
 }
 
 .salvar-btn {
-background: #1976d2;
-color: #fff;
-border: none;
-padding: 11px;
-border-radius: 6px;
-font-size: 1.08rem;
-margin-top: 10px;
-cursor: pointer;
-transition: background 0.2s;
-font-weight: bold;
-letter-spacing: 1px;
+	background-color: #d57617;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
 }
 
-.salvar-btn:hover {
-background: #125ea2;
-}
+
 
 /* Estilo para a confirmação */
 .confirmacao-modal {

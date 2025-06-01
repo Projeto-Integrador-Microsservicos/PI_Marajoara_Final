@@ -16,7 +16,6 @@ body {
     background-color: #f9f9f9;
 }
 
-/* Header */
 header {
     background-color: #eed9c4;
     display: flex;
@@ -60,7 +59,7 @@ header {
     color: #333;
     font-size: 1rem;
     display: block;
-    padding: 0.3125rem 0.625rem;
+    padding: 0.3125rem 0.625rem; /* Ajustado para REM */
     transition: background-color 0.3s ease;
 }
 
@@ -72,7 +71,8 @@ header {
 {
 	display: flex;
 	align-items: center;
-	padding: 3rem 5rem 3rem 5rem;
+	padding: 1rem ;
+	justify-content: space-evenly;
 }
 
 /* Menu lateral */
@@ -119,12 +119,7 @@ html, body {
 }
 
 /* Ajusta o main para ocupar o espaço restante */
-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+
 
 .reclamacao-container {
     margin: 0;
@@ -134,9 +129,9 @@ main {
 
 main 
 {    
-    margin-left: 15rem; /* Ajustado para REM */
+    margin-left: 2rem; /* Ajustado para REM */
     padding: 0.0625rem; /* Ajustado para REM */
-    width: 40rem; /* Ajustado para REM */
+    width: 65%; /* Ajustado para REM */
     border: 0.0625rem solid #bd5612; /* Ajustado para REM */
     border-radius: 2rem; /* Ajustado para REM */
 }
@@ -193,5 +188,83 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #a44b0f;
+    background-color: #a44b0f;
+}
+
+/* Responsividade para telas pequenas (máximo de 768px) */
+@media (max-width: 768px) {
+    /* Reorganiza o layout para que o menu lateral fique em cima */
+    .button-containter {
+        position: relative; /* Remove o deslocamento fixo */
+        left: 0; /* Remove o deslocamento horizontal */
+        top: 0; /* Remove o deslocamento vertical */
+        width: 100%; /* O menu ocupa toda a largura */
+        padding: 1.5rem; /* Ajusta o padding */
+        margin-bottom: 1.5rem; /* Adiciona espaço abaixo do menu */
+    }
+
+    /* Ajusta o formulário de reclamação */
+    main {
+        position: relative; /* Remove o deslocamento fixo */
+        bottom: 0; /* Remove o deslocamento vertical */
+        left: 0; /* Remove o deslocamento horizontal */
+        margin: 0 auto; /* Centraliza o conteúdo */
+        width: 90%; /* O conteúdo ocupa 90% da largura */
+        padding: 1rem; /* Ajusta o padding */
+    }
+
+    .reclamacao-container {
+        padding: 1.5rem; /* Ajusta o padding interno */
+        border-radius: 1rem; /* Ajusta as bordas arredondadas */
+    }
+
+    .reclamacao-container h1 {
+        font-size: 2rem; /* Reduz o tamanho da fonte */
+        bottom: 0; /* Remove o deslocamento vertical */
+    }
+
+    .input-group label,
+    .input-group input,
+    .input-group textarea,
+    .input-group select {
+        bottom: 0; /* Remove o deslocamento vertical */
+    }
+
+    button[type="submit"] {
+        bottom: 0; /* Remove o deslocamento vertical */
+        font-size: 1rem; /* Mantém o tamanho da fonte */
+        padding: 0.8rem 1.5rem; /* Ajusta o padding */
+    }
+}
+
+/* Responsividade para telas muito pequenas (máximo de 480px) */
+@media (max-width: 480px) {
+    .button-containter {
+        padding: 1rem; /* Reduz o padding */
+    }
+
+    main {
+        width: 100%; /* O conteúdo ocupa toda a largura */
+        padding: 0.8rem; /* Reduz o padding */
+    }
+
+    .reclamacao-container {
+        padding: 1rem; /* Reduz ainda mais o padding interno */
+    }
+
+    .reclamacao-container h1 {
+        font-size: 1.8rem; /* Reduz ainda mais o tamanho da fonte */
+    }
+
+    .input-group input,
+    .input-group textarea,
+    .input-group select {
+        font-size: 0.9rem; /* Ajusta o tamanho da fonte */
+        padding: 0.8rem; /* Ajusta o padding interno */
+    }
+
+    button[type="submit"] {
+        font-size: 0.9rem; /* Reduz o tamanho da fonte */
+        padding: 0.6rem 1rem; /* Ajusta o padding */
+    }
 }

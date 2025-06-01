@@ -16,29 +16,29 @@ body {
     background-color: #f9f9f9;
 }
 
-/* Header */
 header {
     background-color: #eed9c4;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: auto;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .img_logo {
-    height: 7rem; /* Ajustado para REM */
+    height: 6rem; /* Mantém o tamanho proporcional */
 }
 
 .img_nav_login {
-    height: 3.75rem; /* Ajustado para REM */
+	height: 2rem;
+	margin-left: 1rem;
 }
 
 .nav_area_user {
-    display: flex;
-    align-items: baseline;
-    padding-right: 0.6rem; /* Ajustado para REM */
-    position: relative;
+	display: flex;
+	align-items: center;
+	padding-right: 0.6rem; /* Ajustado para REM */
+	position: relative;
 }
 
 .dropdown-menu {
@@ -47,10 +47,10 @@ header {
     top: 3.125rem; /* Ajustado para REM */
     right: 0;
     background-color: #fff;
-    border: 0.0625rem solid #ccc; /* Ajustado para REM */
-    border-radius: 0.3125rem; /* Ajustado para REM */
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* Ajustado para REM */
-    padding: 0.625rem; /* Ajustado para REM */
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.3125rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    padding: 0.625rem;
     z-index: 1000;
 }
 
@@ -71,7 +71,8 @@ header {
 {
 	display: flex;
 	align-items: center;
-	padding: 3rem 5rem 3rem 5rem;
+	padding: 1rem ;
+	justify-content: space-evenly;
 }
 
 /* Menu lateral */
@@ -118,12 +119,7 @@ html, body {
 }
 
 /* Ajusta o main para ocupar o espaço restante */
-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+
 
 .reclamacao-container {
     margin: 0;
@@ -133,9 +129,9 @@ main {
 
 main 
 {    
-    margin-left: 15rem; /* Ajustado para REM */
+    margin-left: 2rem; /* Ajustado para REM */
     padding: 0.0625rem; /* Ajustado para REM */
-    width: 40rem; /* Ajustado para REM */
+    width: 65%; /* Ajustado para REM */
     border: 0.0625rem solid #bd5612; /* Ajustado para REM */
     border-radius: 2rem; /* Ajustado para REM */
 }
