@@ -24,19 +24,19 @@
 			</div>
 		</div>
 	</header>
-
+'
 	<main>
 		<section class="perfil-container">
 			<h1>Atualizar Funcionário</h1>
 			<form id="perfil-form" action="#" th:action="@{/updateFunc}" th:object="${funcionario}" method="POST">
-				<input class="input_form" type="hidden" th:field="*{id}" />
+				<input class="input_form" type="hidden" th:field="*{id}"/>
 				<label for="porteiro-nome">Nome:</label>
 				<input class="input_form" type="text" th:field="*{nome}" required>
 				<label for="porteiro-email">Email:</label>
 				<input class="input_form" type="email" th:field="*{email}" required>
 				<input class="input_form" type="text" hidden="true" th:field="*{senha}" required>
 				<input type="hidden" th:field="*{updatedOn}">
-				<input type="hidden" th:field="*{updatedBy}">
+				<input type="hidden" name="updatedBy" th:value="${usuario.nome}">
 				<button type="submit">Salvar</button>
 			</form>
 			<a th:href="@{/adm/configuracoes}" class="btn_voltar">Voltar</a>
