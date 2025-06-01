@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +25,7 @@ public class FuncionarioService {
 
         public void save(Funcionario funcionario) throws IOException
         {
+        	funcionario.setUpdatedOn(LocalDateTime.now()); 
             funcRepo.save(funcionario);
         }
 
