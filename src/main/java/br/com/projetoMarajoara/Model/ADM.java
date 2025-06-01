@@ -14,25 +14,6 @@ public class ADM {
     String nome;
     String email;
     String senha;
-    private boolean twoFactorEnabled;
-    private String secret;
-
-
-    public boolean isTwoFactorEnabled() {
-        return twoFactorEnabled;
-    }
-
-    public void setTwoFactorEnabled(boolean twoFactorEnabled) {
-        this.twoFactorEnabled = twoFactorEnabled;
-    }
-
-    public String getSecret() {
-        return secret;
-    }
-
-    public void setSecret(String secret) {
-        this.secret = secret;
-    }
 
     public Long getId() {
         return id;

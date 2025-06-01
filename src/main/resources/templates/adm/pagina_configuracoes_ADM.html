@@ -76,9 +76,9 @@
 				<label for="event-description-add">Senha:</label>
 				<input type="text" name="senha" id="func-senha" required>
 				
-				<label for="event-description-add">Autenticação de 2 fatores:</label>
-				<input type="checkbox" name="twoFactorEnabled" id="func-OAuth2">
-
+				<input type="hidden" th:field="*{updatedOn}">
+				<input type="hidden" th:field="*{updatedBy}">
+				
 				<button type="submit" id="save-event">Salvar</button>
 			</form>
 		</div>

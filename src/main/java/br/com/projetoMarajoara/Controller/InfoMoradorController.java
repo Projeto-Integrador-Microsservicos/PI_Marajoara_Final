@@ -31,24 +31,44 @@ public class InfoMoradorController {
         return "redirect:/";
     }
     
-    @PostMapping("/updateMorador")
-    public String updateMorador(@ModelAttribute Morador morador) throws IOException {
-    	String senhaCriptografada = ps.encode(morador.getSenha());
-        morador.setSenha(senhaCriptografada);
-    	morador.setUpdatedOn(LocalDateTime.now());
+    @PostMapping("/updatePerfilMorador")
+    public String updatePerfilMorador(@ModelAttribute Morador morador) throws IOException {
+    	Morador mora = ms.getBtEmail(morador.getEmail());
+    	
+    	if(!morador.getSenha().contains("$2a$10$"))
+    	{
+    		String senhaCriptografada = ps.encode(morador.getSenha());
+            morador.setSenha(senhaCriptografada);
+        	morador.setUpdatedOn(LocalDateTime.now());
+    	}
+    	
+    	morador.setId(mora.getId());
         ms.save(morador);
-        return "redirect:/";
+        return "redirect:/morador/perfil";
     }
     
-    @PostMapping("/updateSenha")
-    public String updateSenhaMorador(@RequestParam String email, @RequestParam String nova_senha) throws IOException {
-    	Morador morador = ms.getBtEmail(email);
-    	String senhaCriptografada = ps.encode(nova_senha);
-        morador.setSenha(senhaCriptografada);
+    @PostMapping("/updateMorador")
+    public String updateMorador(@ModelAttribute Morador morador) throws IOException {
+    	if(!morador.getSenha().contains("$2a$10$"))
+    	{
+    		String senhaCriptografada = ps.encode(morador.getSenha());
+            morador.setSenha(senhaCriptografada);
+        	morador.setUpdatedOn(LocalDateTime.now());
+    	}
         ms.save(morador);
-        return "redirect:/";
+        return "redirect:/morador/perfil";
     }
-
+    
+    /*
+	    @PostMapping("/updateSenha")
+	    public String updateSenhaMorador(@RequestParam String email, @RequestParam String nova_senha) throws IOException {
+	    	Morador morador = ms.getBtEmail(email);
+	    	String senhaCriptografada = ps.encode(nova_senha);
+	        morador.setSenha(senhaCriptografada);
+	        ms.save(morador);
+	        return "redirect:/";
+	    }
+     */
     @PostMapping("/deleteMorador/{id}")
     public String deleteThroughId(@PathVariable(value = "id") long id) {
         ms.deleteViaId(id);
