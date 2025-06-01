@@ -26,6 +26,8 @@ public class InfoReservaController {
             return "redirect:/morador/aluguel";
         }
 
+        System.out.println(reserva.getReservado_por());
+        
         rs.save(reserva);
         redirectAttributes.addFlashAttribute("sucesso", "Reserva realizada com sucesso!");
         return "redirect:/morador/aluguel";

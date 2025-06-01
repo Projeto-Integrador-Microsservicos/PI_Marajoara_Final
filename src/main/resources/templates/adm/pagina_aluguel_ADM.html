@@ -71,6 +71,7 @@
 							<th style="text-align: center">Ações</th>
 						</tr>
 					</thead>
+					<div class="table-container">
 					<tbody id="porteiros-tbody">
 						<tr th:each="alu:${listaAluguel}">
 							<td th:text="${#temporals.format(alu.data, 'dd/MM/yyyy')}" style="text-align: center"></td>
@@ -82,11 +83,12 @@
 							<td>
 								<div class=flex_buttons>
 									<a th:href="@{/deleteReserva/{id}(id=${alu.id})}" class="btn btn-danger"
-										style="margin-top: 3px">Delete</a>
+										style="margin-top: 3px" >Delete</a>
 								</div>
 							</td>
 						</tr>
 					</tbody>
+					</div>
 				</table>
 			</div>
 		</div>

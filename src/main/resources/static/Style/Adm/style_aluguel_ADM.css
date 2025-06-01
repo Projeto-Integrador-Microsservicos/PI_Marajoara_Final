@@ -244,13 +244,14 @@ header {
     border-color: #8B4513;
 }
 
-porteiros-table {
+.porteiros-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 30px;
     background: #fafbfc;
     border-radius: 8px;
-    overflow: hidden;
+    overflow-y: auto;
+	max-height: 1rem;
     box-shadow: 0 1px 4px rgba(0,0,0,0.04);
 }
 
@@ -293,6 +294,10 @@ porteiros-table {
     opacity: 0.85;
 }
 
+.table-container {
+    max-height: 10rem;
+    overflow-y: auto;
+}
 
 /* Responsividade para telas pequenas */
 @media (max-width: 768px) {
@@ -309,13 +314,6 @@ porteiros-table {
         position: relative; /* Remove o deslocamento lateral */
         top: 0; /* Remove o deslocamento vertical */
         left: 0; /* Remove o deslocamento horizontal */
-    }
-
-    /* Ajusta o container de reserva */
-    .reservation-container {
-        width: 100%; /* O container ocupa toda a largura */
-        margin: 0 auto; /* Centraliza o container */
-        padding: 1rem; /* Ajusta o padding */
     }
 
     .reservation-container h2 {
