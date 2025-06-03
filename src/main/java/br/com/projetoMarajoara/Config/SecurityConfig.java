@@ -30,7 +30,6 @@ public class SecurityConfig {
 			    .csrf(customizer -> customizer.disable())
 			    .authorizeHttpRequests(request -> request
 			    		.requestMatchers("/adm/**").hasAnyAuthority("ROLE_ADM", "ROLE_FUNCIONARIO")
-			    	    //.requestMatchers("/adm/**").hasRole("FUNCIONARIO")
 			    	    .requestMatchers("/morador/**").hasRole("MORADOR")
 			    	    .requestMatchers("/login", "/Style/**", "/addMorador", "/emailSender/sendCodMor",
 			    	    				 "/updateSenha","/Scripts/**", "/Images/**").permitAll()

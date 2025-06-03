@@ -24,7 +24,7 @@ public class InfoAdmController {
     	String senhaCriptografada = ps.encode(adm.getSenha());
         adm.setSenha(senhaCriptografada);
         as.save(adm);
-        return "redirect:/";
+        return "redirect:/adm/eventos";
     }
 
 }

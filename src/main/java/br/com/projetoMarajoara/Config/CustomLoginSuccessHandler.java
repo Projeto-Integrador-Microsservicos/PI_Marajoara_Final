@@ -22,11 +22,7 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 
     	if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADM"))) {
             response.sendRedirect("/adm/eventos");
-        } else if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_FUNCIONARIO"))) {
-            
-        	/*PRECISA MUDAR ISSO AQUI PRA TELA DE MORADOR CASO VA USAR  
-        	 * NO CASO ISSO AQUI E COISA DE FUNCIONARIO*/
-        	
+        } else if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_FUNCIONARIO"))) {        	
         	response.sendRedirect("/adm/eventos");
         	
         } else if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_MORADOR"))) {

@@ -65,6 +65,7 @@
 					<div class="input-group">
 						<label for="categoria">Categoria</label>
 						<input type="hidden" name="email" id="email-to-send" value="joao.plbsilva@gmail.com">
+						<input type="hidden" name="remetente" th:value="${usuario.email}">
 						<select id="categoria" name="titulo" required>
 							<option value="" disabled selected>Selecione uma categoria</option>
 							<option value="barulho">Barulho</option>

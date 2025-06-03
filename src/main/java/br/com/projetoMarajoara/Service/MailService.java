@@ -17,7 +17,7 @@ public class MailService {
     @Value("${spring.mail.username}")
     private String remetente;
 
-    public void sendMail(String destinatario, MailStructure mailStructure) {
+    public void sendMail(String destinatario, MailStructure mailStructure, String remetente) {
         SimpleMailMessage sm = new SimpleMailMessage();
         sm.setFrom(remetente);
         sm.setTo(destinatario);

@@ -18,32 +18,32 @@ public class InfoMailController {
 	MailService ms;
 
 	@PostMapping("/sendAdm")
-	public String sendMailAdm(@RequestParam String titulo, @RequestParam String mensagem, @RequestParam String email) {
+	public String sendMailAdm(@RequestParam String titulo, @RequestParam String mensagem, 
+			@RequestParam String email, @RequestParam String remetente  ) {
 		MailStructure mail = new MailStructure();
-		System.out.println(titulo);
-		System.out.println(mensagem);
-		System.out.println(email);
 		mail.setTitulo(titulo);
 		mail.setMensagem(mensagem);
-		ms.sendMail(email, mail);
+		ms.sendMail(email, mail, remetente);
 		return "redirect:/adm/reclamacoes";
 	}
 	
 	@PostMapping("/sendMor")
-	public String sendMailMor(@RequestParam String titulo, @RequestParam String mensagem, @RequestParam String email) {
+	public String sendMailMor(@RequestParam String titulo, @RequestParam String mensagem, 
+			@RequestParam String email, @RequestParam String remetente  ) {
 		MailStructure mail = new MailStructure();
 		mail.setTitulo(titulo);
 		mail.setMensagem(mensagem);
-		ms.sendMail(email, mail);
+		ms.sendMail(email, mail, remetente);
 		return "redirect:/morador/reclamacoes";
 	}
 	
 	@PostMapping("/sendCodMor")
-	public ResponseEntity<String> sendCodMailMor(@RequestParam String titulo, @RequestParam String mensagem, @RequestParam String email) {
+	public ResponseEntity<String> sendCodMailMor(@RequestParam String titulo, @RequestParam String mensagem,
+			@RequestParam String email) {
 		MailStructure mail = new MailStructure();
 		mail.setTitulo(titulo);
 		mail.setMensagem(mensagem);
-		ms.sendMail(email, mail);
+		ms.sendMail(email, mail, "codigos@marajoara.com");
 		return ResponseEntity.ok("Código enviado!");
 	}
 

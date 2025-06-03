@@ -31,8 +31,7 @@ public class MyUserDetailsService implements UserDetailsService{
 
 		ADM adm = admRepo.findByEmail(email);
 		Funcionario fun = funcRepo.findByEmail(email); 
-		Morador mor = morRepo.findByEmail(email);
-		
+		Morador mor = morRepo.findByEmail(email);	
 		
 		if( adm == null && fun == null && mor == null) {
 			throw new UsernameNotFoundException("Usuario n encontrado");
@@ -45,7 +44,4 @@ public class MyUserDetailsService implements UserDetailsService{
 		}
 		return new UsuarioLogado(adm);
 	}
-
-	
-	
 }

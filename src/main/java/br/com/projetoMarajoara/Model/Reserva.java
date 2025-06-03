@@ -17,7 +17,6 @@ public class Reserva {
     private Boolean manha;
     private Boolean tarde;
     private Boolean noite;
-    private String periodo;
     private String reservado_por;
     
     public Boolean getManha() {
@@ -74,14 +73,6 @@ public class Reserva {
 
     public void setData(LocalDate data) {
         this.data = data;
-    }
-
-    public String getPeriodo() {
-        return periodo;
-    }
-
-    public void setPeriodo(String periodo) {
-        this.periodo = periodo;
     }
 
 }

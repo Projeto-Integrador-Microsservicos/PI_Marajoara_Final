@@ -127,7 +127,7 @@ document.getElementById('resetPasswordForm').addEventListener('submit', (e) => {
 	})	
 			.then(response => response.text())
 			.then(data => window.alert(data))
-			.catch(error => window.alert(error));
+			.catch(error => console.log(error));
 
 	resetPasswordError.style.display = 'none';
 	window.location.href = 'index.html';

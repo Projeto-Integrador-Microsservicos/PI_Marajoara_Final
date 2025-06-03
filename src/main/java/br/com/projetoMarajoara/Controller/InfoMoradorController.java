@@ -39,12 +39,11 @@ public class InfoMoradorController {
     	{
     		String senhaCriptografada = ps.encode(morador.getSenha());
             morador.setSenha(senhaCriptografada);
-        	morador.setUpdatedOn(LocalDateTime.now());
     	}
     	
     	morador.setId(mora.getId());
         ms.save(morador);
-        return "redirect:/morador/perfil";
+        return "redirect:/morador/eventos";
     }
     
     @PostMapping("/updateMorador")
@@ -53,13 +52,11 @@ public class InfoMoradorController {
     	{
     		String senhaCriptografada = ps.encode(morador.getSenha());
             morador.setSenha(senhaCriptografada);
-        	morador.setUpdatedOn(LocalDateTime.now());
     	}
         ms.save(morador);
         return "redirect:/morador/perfil";
     }
-    
-    /*
+   
 	    @PostMapping("/updateSenha")
 	    public String updateSenhaMorador(@RequestParam String email, @RequestParam String nova_senha) throws IOException {
 	    	Morador morador = ms.getBtEmail(email);
@@ -68,7 +65,6 @@ public class InfoMoradorController {
 	        ms.save(morador);
 	        return "redirect:/";
 	    }
-     */
     @PostMapping("/deleteMorador/{id}")
     public String deleteThroughId(@PathVariable(value = "id") long id) {
         ms.deleteViaId(id);

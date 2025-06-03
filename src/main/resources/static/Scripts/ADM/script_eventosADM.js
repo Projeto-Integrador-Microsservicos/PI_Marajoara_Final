@@ -1,6 +1,6 @@
 
-let selectedEvent = null; // Armazena um evento para edição
-let deleteMode = false; // Indica se o modo de exclusão está ativo
+let selectedEvent = null;
+let deleteMode = false; 
 
 // Fecha o dropdown ao clicar fora dele
 document.addEventListener('click', function(event) {
@@ -105,21 +105,17 @@ function enableDeleteMode() {
 	alert("Clique em um evento para selecioná-lo para exclusão.");
 }
 
-// Função para selecionar um evento para exclusão
 function selectEventForDeletion(element) {
-	if (!deleteMode) return; // Só permite selecionar se o modo de exclusão estiver ativo
+	if (!deleteMode) return; 
 
-	// Remove a seleção anterior
 	const previousSelected = document.querySelector(".item_box.selected");
 	if (previousSelected) {
 		previousSelected.classList.remove("selected");
 	}
 
-	const id = selectedEvent.querySelector(".item-id").textContent;
-	// Marca o novo evento como selecionado
+	const id = selectedEvent.querySelector(".gallery-id").textContent;
 	element.classList.add("selected");
 	selectedEvent = element;
-	// Confirmação antes de excluir
 	const confirmDelete = confirm("Tem certeza de que deseja excluir este evento?");
 	if (confirmDelete) {
 		fetch(`deleteEvento/${id}`, {
@@ -140,7 +136,6 @@ function selectEventForDeletion(element) {
 				alert("Erro ao tentar excluir o evento.");
 			});
 	} else {
-		// Caso o usuário cancele, desativa o modo de exclusão
 		deleteMode = false;
 		selectedEvent.classList.remove("selected");
 		selectedEvent = null;
